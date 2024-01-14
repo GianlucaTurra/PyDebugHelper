@@ -21,6 +21,8 @@ class MainApplication(tk.Frame):
         ds_list = [ds_one, ds_two]
         ds_list = [ds_to_dict(ds) for ds in ds_list]
         self.differences = match_multiple_ds(ds_list)
+        if self.differences is None:
+            return
         print(self.differences)
         self.frame.grid_forget()
         self.frame = ResultViewer(self, self.differences)
