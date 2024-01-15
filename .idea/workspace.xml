@@ -7,10 +7,10 @@
     <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring of gui classes">
       <change beforePath="$PROJECT_DIR$/.idea/PyDsMatcher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyDsMatcher.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_application.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ds_matcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ds_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_structures_controls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,6 @@
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PyDsMatcher" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
