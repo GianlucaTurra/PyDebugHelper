@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring of gui classes">
-      <change beforePath="$PROJECT_DIR$/.idea/PyDsMatcher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyDsMatcher.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Finished first version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ds_matcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ds_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_structures_controls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,11 +102,20 @@
       <option name="project" value="LOCAL" />
       <updated>1705155876631</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finished first version">
+      <option name="closed" value="true" />
+      <created>1705354148423</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705354148423</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished basic logic and functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished basic logic and functionality" />
+    <MESSAGE value="Finished first version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished first version" />
   </component>
 </project>
