@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import END
 
 from modules.ds_matcher import match_multiple_ds, ds_to_dict
 
@@ -23,7 +24,6 @@ class MainApplication(tk.Frame):
         self.differences = match_multiple_ds(ds_list)
         if self.differences is None:
             return
-        print(self.differences)
         self.frame.grid_forget()
         self.frame = ResultViewer(self, self.differences)
         self.frame.grid()
@@ -31,4 +31,6 @@ class MainApplication(tk.Frame):
     def show_insert(self):
         self.frame.grid_forget()
         self.frame = self.hidden_frame
+        self.frame.block_one.box.delete('1.0', END)
+        self.frame.block_two.box.delete('1.0', END)
         self.frame.grid()
