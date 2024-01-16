@@ -6,7 +6,8 @@ import tkinter as tk
 
 def main():
     root = tk.Tk()
-    app = MainApplication(parent=root, frame=InsertDs)
+    frames = {'Controllo DS': InsertDs}
+    app = MainApplication(parent=root, frames=frames)
     app.grid()
     app.mainloop()
 
