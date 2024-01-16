@@ -4,7 +4,7 @@ from tkinter import END
 from modules.ds_matcher import match_multiple_ds, ds_to_dict
 
 from GUI.result import ResultViewer
-from GUI.notebook import NoteBook
+from GUI.app_notebook import AppNoteBook
 
 
 class MainApplication(tk.Frame):
@@ -14,7 +14,7 @@ class MainApplication(tk.Frame):
         self.parent = parent
         self.differences = {}
         self.parent.title('Custom Debug Utilities')
-        self.notebook = NoteBook(self)
+        self.notebook = AppNoteBook(self)
 
         for tab_name, frame in frames.items():
             self.notebook.add_frame(tab_name, frame)
