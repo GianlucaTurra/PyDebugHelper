@@ -46,7 +46,8 @@ class InputFrame(tk.Frame):
         self.format_button.grid(row=2, column=0, padx=50, pady=15)
 
     def format_sql_string(self, sql_string: str) -> None:
-        formatted_sql_string = sqlparse.format(sql_string, reindent=True, keyword_case='upper', identifier_case='lower')
+        formatted_sql_string = sqlparse.format(sql_string, reindent=True, keyword_case='upper', identifier_case='lower',
+                                               use_space_around_operators=True, output_format='rpgle') # , wrap_after=35
         self.parent.output_frame = OutputFrame(self.parent, formatted_sql_string)
         self.parent.show_frame('output')
 

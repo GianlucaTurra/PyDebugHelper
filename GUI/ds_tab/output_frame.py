@@ -1,31 +1,31 @@
 import tkinter as tk
 
 
-class ResultViewer(tk.Frame):
+class OutputFrame(tk.Frame):
 
     def __init__(self, parent, results: dict, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        self.configure(background='#9AC5F4')
 
         self.results = results
         self.counter = 1
 
-        self.keys_title = tk.Label(self, text='Chiave', font=('Elvetica', 16), background='#9AC5F4')
+        self.keys_title = tk.Label(self, text='Chiave', font=('Elvetica', 16))
         self.keys_title.grid(row=0, column=0, padx=50, pady=25)
-        self.title_one = tk.Label(self, text='Data Structure 1', font=('Elvetica', 16), background='#9AC5F4')
+        self.title_one = tk.Label(self, text='Data Structure 1', font=('Elvetica', 16))
         self.title_one.grid(row=0, column=1, padx=50, pady=25)
-        self.title_two = tk.Label(self, text='Data Structure 2', font=('Elvetica', 16), background='#9AC5F4')
+        self.title_two = tk.Label(self, text='Data Structure 2', font=('Elvetica', 16))
         self.title_two.grid(row=0, column=2, padx=50, pady=25)
 
-        self.results_summary = tk.Label(self, text=f'Sono state trovate {len(results)} differenze!',
-                                        font=('Elvetica', 16),
-                                        background='#9AC5F4')
+        self.text = f'Sono state trovate {len(results)} differenze!'
+        if len(results) == 1:
+            self.text = f'È stata trovata {len(results)} differenza!'
+
+        self.results_summary = tk.Label(self, text=self.text, font=('Elvetica', 16), background='#9AC5F4')
         self.results_summary.grid(row=1, column=0, padx=10, pady=10, columnspan=3)
 
         for (key, value) in zip(self.results.keys(), self.results.values()):
             self.counter += 1
-            print(value[0])
             self.key_label = tk.Entry(self, font=('Elvetica', 12))
             self.key_label.insert(0, key)
             self.key_label.configure(state='readonly')

@@ -11,11 +11,11 @@ class AppNoteBook(ttk.Notebook):
         for tab_name, frame in frames.items():
             self.add_frame(tab_name, frame)
 
-    def add_frame(self, tab_name, frame):
+    def add_frame(self, tab_name: str, frame) -> None:
         self.frames[tab_name] = frame
         self.add(frame(self), text=tab_name)
 
-    def show_tab(self, tab_name):
+    def show_tab(self, tab_name: str) -> None:
         tab_index = list(self.frames.keys()).index(tab_name)
         self.select(tab_index)
 

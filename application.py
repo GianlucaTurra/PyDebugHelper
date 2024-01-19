@@ -1,10 +1,10 @@
 import tkinter as tk
 
 from GUI.app_notebook import AppNoteBook
-from GUI.insert_ds import InsertDs
+from GUI.ds_tab.ds_match import DsMatchFrame
 from GUI.sql_parser import SqlParser
 
-__frames = {'Controllo DS': InsertDs, 'Sql parser': SqlParser}
+__frames = {'Controllo DS': DsMatchFrame, 'Sql parser': SqlParser}
 __root = tk.Tk()
 __root.state('zoomed')
 __app = AppNoteBook(parent=__root, frames=__frames)

@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Created SqlParser Frame, started redesigning classes">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added little stuff to sql parser">
+      <change afterPath="$PROJECT_DIR$/GUI/ds_tab/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/insert_ds.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/main_application.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
@@ -50,6 +56,7 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\ds_tab" />
       <recent name="D:\Robe Python\PyDsMatcher\GUI" />
     </key>
   </component>
@@ -130,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705419244544</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added little stuff to sql parser">
+      <option name="closed" value="true" />
+      <created>1705510748238</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705510748238</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -138,6 +153,7 @@
     <MESSAGE value="Finished first version" />
     <MESSAGE value="Added Notebook" />
     <MESSAGE value="Created SqlParser Frame, started redesigning classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created SqlParser Frame, started redesigning classes" />
+    <MESSAGE value="Added little stuff to sql parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added little stuff to sql parser" />
   </component>
 </project>
