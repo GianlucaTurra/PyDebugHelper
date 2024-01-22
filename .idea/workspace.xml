@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Theoretically finished matching DS frames">
-      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/sql_parser_controls.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Fixed bugs in sql_parser.py and its children">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/sql_parser_controls.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705677655160</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed bugs in sql_parser.py and its children">
+      <option name="closed" value="true" />
+      <created>1705929004336</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705929004336</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -163,6 +167,7 @@
     <MESSAGE value="Created SqlParser Frame, started redesigning classes" />
     <MESSAGE value="Added little stuff to sql parser" />
     <MESSAGE value="Theoretically finished matching DS frames" />
-    <option name="LAST_COMMIT_MESSAGE" value="Theoretically finished matching DS frames" />
+    <MESSAGE value="Fixed bugs in sql_parser.py and its children" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs in sql_parser.py and its children" />
   </component>
 </project>
