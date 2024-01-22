@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added little stuff to sql parser">
-      <change afterPath="$PROJECT_DIR$/GUI/ds_tab/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Theoretically finished matching DS frames">
+      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/sql_parser_controls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/insert_ds.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_application.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +55,7 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\sql_tab" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\ds_tab" />
       <recent name="D:\Robe Python\PyDsMatcher\GUI" />
     </key>
@@ -145,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705510748238</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Theoretically finished matching DS frames">
+      <option name="closed" value="true" />
+      <created>1705677655160</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705677655160</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +162,7 @@
     <MESSAGE value="Added Notebook" />
     <MESSAGE value="Created SqlParser Frame, started redesigning classes" />
     <MESSAGE value="Added little stuff to sql parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added little stuff to sql parser" />
+    <MESSAGE value="Theoretically finished matching DS frames" />
+    <option name="LAST_COMMIT_MESSAGE" value="Theoretically finished matching DS frames" />
   </component>
 </project>

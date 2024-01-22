@@ -7,7 +7,6 @@ class InputFrame(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        print(self.parent.__repr__())
 
         self.label_one = tk.Label(self, text='Data Structure 1', font=('Elvetica', 16))
         self.label_one.grid(row=0, column=0, padx=50, pady=25)
