@@ -8,6 +8,10 @@ from modules.data_structures_controls import split_if_not_qualified, check_if_va
 
 
 def get_funny_exclamation() -> str:
+    """
+    Randomly return a funny exclamation
+    :return: Entry of the exclamations list
+    """
     exclamations = ['Perdindirindina', 'Perdincibacco', 'Perbaccolina']
     return exclamations[random.randint(0, len(exclamations) - 1)]
 

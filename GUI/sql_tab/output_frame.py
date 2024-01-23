@@ -21,3 +21,15 @@ class OutputFrame(tk.Frame):
                                         command=lambda: self.parent.show_frame('input'),
                                         font=('Elvetica', 14))
         self.beck_to_insert.grid(row=2, column=0, padx=50, pady=15)
+
+    def display_result(self, input_text: str) -> None:
+        """
+        Deletes existing text into the text box and replaces it with
+        input_text
+        :param input_text: Formatted SQL query
+        :return: None
+        """
+        self.output_box.configure(state='normal')
+        self.output_box.delete('1.0', tk.END)
+        self.output_box.insert(tk.END, input_text)
+        self.output_box.configure(state='disabled')

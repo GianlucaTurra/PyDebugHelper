@@ -1,3 +1,10 @@
+"""
+Applicazione di supporto per il debug
+
+Author: Gianluca Turra
+Version: 0.2201
+"""
+
 from application import run_app
 
 

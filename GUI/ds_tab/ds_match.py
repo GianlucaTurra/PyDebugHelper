@@ -18,6 +18,7 @@ class DsMatchFrame(tk.Frame):
         """
         Call to methods to find differences and initialize Output Frame
         populated with results
+        :return: None
         """
         ds_list = [ds_one, ds_two]
         ds_list = [ds_to_dict(ds) for ds in ds_list]
@@ -29,6 +30,10 @@ class DsMatchFrame(tk.Frame):
         self.frame.place(in_=self, anchor='center', relx='.5', rely='.25')
 
     def show_insert(self) -> None:
+        """
+        Hides output frame to show the input frame
+        :return: None
+        """
         self.frame.place_forget()
         self.frame = InputFrame(self)
         self.frame.grid()
