@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Removed useless file from version control">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Moved to ttk from base tkinter">
+      <change afterPath="$PROJECT_DIR$/GUI/custom_messagebox/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.vbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ds_matcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705940842067</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added checkbox for sql formatting and docstrings">
+      <option name="closed" value="true" />
+      <created>1706016255458</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706016255458</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,6 +200,8 @@
     <MESSAGE value="Fixed bugs in sql_parser.py and its children" />
     <MESSAGE value="Fixed last things" />
     <MESSAGE value="Removed useless file from version control" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed useless file from version control" />
+    <MESSAGE value="Added checkbox for sql formatting and docstrings" />
+    <MESSAGE value="Moved to ttk from base tkinter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved to ttk from base tkinter" />
   </component>
 </project>
