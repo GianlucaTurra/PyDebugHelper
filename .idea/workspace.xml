@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Moved to ttk from base tkinter">
-      <change afterPath="$PROJECT_DIR$/GUI/custom_messagebox/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.vbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/messagebox/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_messagebox/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/custom_widgets/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -57,6 +54,7 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\GUI\custom_widgets" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\sql_tab" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\ds_tab" />
       <recent name="D:\Robe Python\PyDsMatcher\GUI" />

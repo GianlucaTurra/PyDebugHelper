@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import ttk
 
+from GUI.custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
+
 
 class InputFrame(tk.Frame):
 
@@ -12,7 +14,8 @@ class InputFrame(tk.Frame):
         self.title_label = ttk.Label(self, text='Query sql da riformattare:', font=('Elvetica', 16))
         self.title_label.grid(row=0, column=0, padx=50, pady=25)
 
-        self.input_box = scrolledtext.ScrolledText(self, wrap=tk.WORD, width=177, height=30)
+        # self.input_box = scrolledtext.ScrolledText(self, wrap=tk.WORD, width=177, height=30)
+        self.input_box = CustomScrolledText(self)
         self.input_box.grid(row=2, column=0, padx=50, pady=25)
 
         self.debug_check = tk.BooleanVar()
