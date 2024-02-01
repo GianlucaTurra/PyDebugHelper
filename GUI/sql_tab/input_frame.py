@@ -15,7 +15,7 @@ class InputFrame(tk.Frame):
         self.title_label.grid(row=0, column=0, padx=50, pady=25)
 
         # self.input_box = scrolledtext.ScrolledText(self, wrap=tk.WORD, width=177, height=30)
-        self.input_box = CustomScrolledText(self)
+        self.input_box = CustomScrolledText(self, text_width=237, text_height=30)
         self.input_box.grid(row=2, column=0, padx=50, pady=25)
 
         self.debug_check = tk.BooleanVar()
@@ -29,7 +29,7 @@ class InputFrame(tk.Frame):
         self.format_button = ttk.Button(self,
                                         text='Formatta',
                                         command=lambda: self.parent.format_sql_string(
-                                            self.input_box.get('1.0', 'end-1c'),
+                                            self.input_box.get(),
                                             self.debug_check.get()
                                         ))
         self.format_button.grid(row=3, column=0, padx=50, pady=15)

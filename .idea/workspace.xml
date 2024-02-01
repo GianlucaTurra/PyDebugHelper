@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Moved to ttk from base tkinter">
-      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/messagebox/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Created custom scrolledtext widget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/custom_messagebox/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/custom_widgets/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706016255458</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Created custom scrolledtext widget">
+      <option name="closed" value="true" />
+      <created>1706720662160</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706720662160</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,6 +207,7 @@
     <MESSAGE value="Removed useless file from version control" />
     <MESSAGE value="Added checkbox for sql formatting and docstrings" />
     <MESSAGE value="Moved to ttk from base tkinter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved to ttk from base tkinter" />
+    <MESSAGE value="Created custom scrolledtext widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created custom scrolledtext widget" />
   </component>
 </project>

@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import ttk
 
+from GUI.custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
+
 
 class OutputFrame(tk.Frame):
 
@@ -12,9 +14,11 @@ class OutputFrame(tk.Frame):
         self.title_label = ttk.Label(self, text='Query sql formattata:', font=('Elvetica', 16))
         self.title_label.grid(row=0, column=0, padx=50, pady=25)
 
-        self.output_box = scrolledtext.ScrolledText(self, wrap=tk.WORD, width=177, height=35)
-        self.output_box.insert(tk.END, formatted_string)
-        self.output_box.configure(state='disabled')
+        # self.output_box = scrolledtext.ScrolledText(self, wrap=tk.WORD, width=177, height=35)
+        # self.output_box.insert(tk.END, formatted_string)
+        # self.output_box.configure(state='disabled')
+
+        self.output_box = CustomScrolledText(self, text_width=237, text_height=30)
         self.output_box.grid(row=1, column=0, padx=50, pady=25)
 
         self.beck_to_insert = ttk.Button(self,
@@ -29,7 +33,4 @@ class OutputFrame(tk.Frame):
         :param input_text: Formatted SQL query
         :return: None
         """
-        self.output_box.configure(state='normal')
-        self.output_box.delete('1.0', tk.END)
-        self.output_box.insert(tk.END, input_text)
-        self.output_box.configure(state='disabled')
+        self.output_box.set_read_only_value(input_text)

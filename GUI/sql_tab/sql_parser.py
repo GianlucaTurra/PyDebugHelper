@@ -28,7 +28,7 @@ class SqlParser(tk.Frame):
         """
         if frame_name == 'input':
             self.output_frame.grid_forget()
-            self.input_frame.input_box.delete('1.0', tk.END)
+            self.input_frame.input_box.clear()
             self.input_frame.grid()
         if frame_name == 'output':
             self.input_frame.grid_forget()

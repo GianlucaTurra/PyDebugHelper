@@ -5,12 +5,14 @@ from tkinter import ttk
 class CustomScrolledText(tk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
+        tk.Frame.__init__(self, *args, parent)
         self.parent = parent
 
+        # TODO #1: Use a function from the proper module
+        # TODO #2: Change font size and make it editable
         style = ttk.Style()
         default_font = style.lookup("TLabel", "font")
-        self.text_widget = tk.Text(self, wrap="none", width=237, height=30, font=default_font)
+        self.text_widget = tk.Text(self, wrap="none", width=kwargs['text_width'], height=kwargs['text_height'], font=default_font)
         self.text_widget.grid(row=0, column=0, sticky="nsew")
 
         self.y_scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.text_widget.yview)
@@ -30,3 +32,35 @@ class CustomScrolledText(tk.Frame):
         :return: Content of text as String
         """
         return self.text_widget.get(1.0, "end-1c")
+
+    def clear(self) -> None:
+        """
+        Delete all the content of the Text widget
+        :return:
+        """
+        self.text_widget.delete('1.0', tk.END)
+
+    def set_read_only_mode(self) -> None:
+        """
+        Disable user input for the Text widget
+        :return:
+        """
+        self.text_widget.configure(state='disabled')
+
+    def set_editable_mode(self) -> None:
+        """
+        Enable user input for the Text widget
+        :return:
+        """
+        self.text_widget.configure(state='normal')
+
+    def set_read_only_value(self, input_text: str) -> None:
+        """
+        Insert value in the Text widget and disable user input
+        :param input_text: String to insert into the widget
+        :return:
+        """
+        self.set_editable_mode()
+        self.clear()
+        self.text_widget.insert(tk.END, input_text)
+        self.set_read_only_mode()
