@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Started refactoring scrolledtext to custom widget">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring of textbox, first changes to style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +51,7 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\test_files" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\GUI\custom_widgets" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\sql_tab" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\ds_tab" />
@@ -200,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706806432610</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactoring of textbox, first changes to style">
+      <option name="closed" value="true" />
+      <created>1706882063011</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706882063011</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -217,6 +224,7 @@
     <MESSAGE value="Moved to ttk from base tkinter" />
     <MESSAGE value="Created custom scrolledtext widget" />
     <MESSAGE value="Started refactoring scrolledtext to custom widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started refactoring scrolledtext to custom widget" />
+    <MESSAGE value="Refactoring of textbox, first changes to style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of textbox, first changes to style" />
   </component>
 </project>
