@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Created custom scrolledtext widget">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Started refactoring scrolledtext to custom widget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/app_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706720662160</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Started refactoring scrolledtext to custom widget">
+      <option name="closed" value="true" />
+      <created>1706806432610</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706806432610</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -208,6 +216,7 @@
     <MESSAGE value="Added checkbox for sql formatting and docstrings" />
     <MESSAGE value="Moved to ttk from base tkinter" />
     <MESSAGE value="Created custom scrolledtext widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created custom scrolledtext widget" />
+    <MESSAGE value="Started refactoring scrolledtext to custom widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started refactoring scrolledtext to custom widget" />
   </component>
 </project>

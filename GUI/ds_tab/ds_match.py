@@ -10,9 +10,10 @@ class DsMatchFrame(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-
+        self.rowconfigure(0, weight=1)
+        self.columnconfigure(0, weight=1)
         self.frame = InputFrame(self)
-        self.frame.grid()
+        self.frame.grid(sticky='nsew')
 
     def find_differences(self, ds_one: str, ds_two: str) -> None:
         """
@@ -36,4 +37,4 @@ class DsMatchFrame(tk.Frame):
         """
         self.frame.place_forget()
         self.frame = InputFrame(self)
-        self.frame.grid()
+        self.frame.grid(sticky='nsew')

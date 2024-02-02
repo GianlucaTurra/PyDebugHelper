@@ -1,4 +1,4 @@
-from tkinter import ttk, messagebox
+from tkinter import ttk
 
 
 class AppNoteBook(ttk.Notebook):
@@ -10,9 +10,6 @@ class AppNoteBook(ttk.Notebook):
 
         for tab_name, frame in frames.items():
             self.add_frame(tab_name, frame)
-
-        # TODO add a custom messagebox as tk.toplevel to show or not the tutorial
-        # self.show_tutorial =
 
     def add_frame(self, tab_name: str, frame) -> None:
         """
