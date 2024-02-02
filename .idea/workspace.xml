@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring of textbox, first changes to style">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Sql parse always removes \n">
+      <change afterPath="$PROJECT_DIR$/GUI/para_tab/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/para_tab/para_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706882063011</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Sql parse always removes \n">
+      <option name="closed" value="true" />
+      <created>1706891371380</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706891371380</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +234,7 @@
     <MESSAGE value="Created custom scrolledtext widget" />
     <MESSAGE value="Started refactoring scrolledtext to custom widget" />
     <MESSAGE value="Refactoring of textbox, first changes to style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of textbox, first changes to style" />
+    <MESSAGE value="Sql parse always removes \n" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sql parse always removes \n" />
   </component>
 </project>
