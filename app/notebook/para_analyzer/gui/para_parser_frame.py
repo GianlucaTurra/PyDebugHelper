@@ -4,6 +4,7 @@ from tkinter import ttk
 from app.notebook.para_analyzer.modules.para_parsing import format_para
 from app.notebook.para_analyzer.gui.output_frame import OutputFrame
 from app.notebook.para_analyzer.gui.input_frame import InputFrame
+from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 
 
 class ParaParser(tk.Frame):
@@ -20,6 +21,9 @@ class ParaParser(tk.Frame):
 
         self.parse_button = ttk.Button(self, text='Formatta', command=self.format_para)
         self.parse_button.grid(row=1, column=0, columnspan=2, padx=50, pady=25)
+
+        self.search_bar = CustomSearchBar(self)
+        self.search_bar.grid(row=2, column=0, columnspan=2, padx=50, pady=25)
 
     def format_para(self) -> None:
         """
