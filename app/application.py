@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 
-from GUI.app_notebook import AppNoteBook
-from GUI.ds_tab.ds_match import DsMatchFrame
-from GUI.para_tab.para_parser import ParaParser
-from GUI.sql_tab.sql_parser import SqlParser
+from App.NoteBook.app_notebook import AppNoteBook
+from app.notebook.ds_analyzer.gui.ds_match_frame import DsMatchFrame
+from app.notebook.para_analyzer.gui.para_parser_frame import ParaParser
+from app.notebook.sql_parser.gui.sql_parser_frame import SqlParser
 
 
 def style_configure(style: ttk.Style) -> None:

@@ -1,6 +1,6 @@
 from tkinter import ttk
 
-from GUI.custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
+from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 
 
 class OutputFrame(ttk.Frame):

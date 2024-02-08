@@ -4,10 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added IN/OUT_PARA parser gui tab and basic function">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Small changes to para tab">
+      <change afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom_widgets/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom_widgets/messagebox/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom_widgets/scrolledtext/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/para_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/para_tab/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/para_tab/para_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/para_tab/para_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/app_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/messagebox/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/ds_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ds_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/para_tab/para_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/sql_tab/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/data_structures_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/data_structures_controls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +80,11 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\GUI" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\test_files" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\GUI\custom_widgets" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\sql_tab" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher\GUI\ds_tab" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_analyzer\modules" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer\gui" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\sql_parser\gui" />
     </key>
   </component>
   <component name="RunManager">
@@ -232,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707151898331</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Small changes to para tab">
+      <option name="closed" value="true" />
+      <created>1707397199435</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707397199435</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -253,6 +289,7 @@
     <MESSAGE value="Sql parse always removes \n" />
     <MESSAGE value="Started with para xml parser" />
     <MESSAGE value="Added IN/OUT_PARA parser gui tab and basic function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added IN/OUT_PARA parser gui tab and basic function" />
+    <MESSAGE value="Small changes to para tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes to para tab" />
   </component>
 </project>

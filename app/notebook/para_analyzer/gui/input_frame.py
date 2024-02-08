@@ -1,7 +1,7 @@
 from tkinter import ttk
 from tkinter import messagebox
-from GUI.custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
-from modules.ds_matcher import get_funny_exclamation
+from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
+from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
 
 
 class InputFrame(ttk.Frame):

@@ -3,7 +3,7 @@ from typing import List, Dict, Tuple, Set
 
 from tkinter import messagebox
 
-from modules.data_structures_controls import split_if_not_qualified, check_if_value_is_num, check_if_value_is_int, \
+from app.notebook.ds_analyzer.modules.data_structures_controls import split_if_not_qualified, check_if_value_is_num, check_if_value_is_int, \
     check_for_empty_input, check_for_equal_length, check_for_equal_keys
 
 

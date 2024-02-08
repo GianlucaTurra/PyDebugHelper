@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
-from GUI.para_tab.modules.para_parsing import format_para
-from GUI.para_tab.output_frame import OutputFrame
-from GUI.para_tab.input_frame import InputFrame
+from app.notebook.para_analyzer.modules.para_parsing import format_para
+from app.notebook.para_analyzer.gui.output_frame import OutputFrame
+from app.notebook.para_analyzer.gui.input_frame import InputFrame
 
 
 class ParaParser(tk.Frame):

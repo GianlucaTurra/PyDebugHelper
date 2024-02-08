@@ -1,8 +1,8 @@
 import tkinter as tk
 
-from GUI.ds_tab.output_frame import OutputFrame
-from GUI.ds_tab.input_frame import InputFrame
-from modules.ds_matcher import ds_to_dict, match_multiple_ds
+from app.notebook.ds_analyzer.gui.output_frame import OutputFrame
+from app.notebook.ds_analyzer.gui.input_frame import InputFrame
+from app.notebook.ds_analyzer.modules.ds_matcher import ds_to_dict, match_multiple_ds
 
 
 class DsMatchFrame(tk.Frame):

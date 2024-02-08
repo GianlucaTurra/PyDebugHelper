@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from GUI.sql_tab.input_frame import InputFrame
+from app.notebook.sql_parser.gui.input_frame import InputFrame
 
 import sqlparse
 
-from GUI.sql_tab.output_frame import OutputFrame
-from modules.ds_matcher import get_funny_exclamation
+from app.notebook.sql_parser.gui.output_frame import OutputFrame
+from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
 
 FRAMES = ['input', 'output']
 
