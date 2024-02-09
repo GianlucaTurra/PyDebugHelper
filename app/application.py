@@ -11,7 +11,7 @@ def style_configure(style: ttk.Style) -> None:
     style.theme_use()
     style.configure('Title.TLabel', font=('Elvetica', 16))
     style.configure('Title.TFrame', background='#C7FFD8')
-    # style.configure('TButton', foreground='#161D6F')
+    style.configure('TButton', borderwidth=0)
     # style.configure('TLabel', foreground='#98DED9', background='#F6F6F6')
     # style.configure('TFrame', background='#F6F6F6')
 

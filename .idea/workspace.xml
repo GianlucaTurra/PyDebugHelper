@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring packages structure">
-      <change afterPath="$PROJECT_DIR$/custom_widgets/searchbar/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom_widgets/searchbar/img/search_icon.jpg" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="CustomSearchbar introduced">
+      <change afterPath="$PROJECT_DIR$/custom_widgets/searchbar/img/search_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/searchbar/img/search_icon.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +35,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.para_parser.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/custom_widgets/searchbar/img",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.para_parser.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/custom_widgets/searchbar/img&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\custom_widgets\searchbar\img" />
@@ -253,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707398029339</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="CustomSearchbar introduced">
+      <option name="closed" value="true" />
+      <created>1707410520600</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707410520600</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,6 +281,7 @@
     <MESSAGE value="Added IN/OUT_PARA parser gui tab and basic function" />
     <MESSAGE value="Small changes to para tab" />
     <MESSAGE value="Refactoring packages structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring packages structure" />
+    <MESSAGE value="CustomSearchbar introduced" />
+    <option name="LAST_COMMIT_MESSAGE" value="CustomSearchbar introduced" />
   </component>
 </project>
