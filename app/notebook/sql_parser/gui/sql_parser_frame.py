@@ -1,11 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from app.notebook.sql_parser.gui.input_frame import InputFrame
-
 import sqlparse
 
-from app.notebook.sql_parser.gui.output_frame import OutputFrame
 from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
 
 FRAMES = ['input', 'output']
@@ -13,11 +10,11 @@ FRAMES = ['input', 'output']
 
 class SqlParser(tk.Frame):
 
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        self.output_frame = OutputFrame(self, 'Niente da vedere qui')
-        self.input_frame = InputFrame(self)
+        self.output_frame = output_frame(self)
+        self.input_frame = input_frame(self)
         self.input_frame.grid()
 
     def show_frame(self, frame_name: str) -> None:

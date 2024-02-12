@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="CustomSearchbar introduced">
-      <change afterPath="$PROJECT_DIR$/custom_widgets/searchbar/img/search_icon.png" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added img to searchbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_widgets/searchbar/img/search_icon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/app_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,8 +261,27 @@
       <option name="project" value="LOCAL" />
       <updated>1707410520600</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added img to searchbar">
+      <option name="closed" value="true" />
+      <created>1707497305284</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707497305284</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished basic logic and functionality" />
@@ -282,6 +304,7 @@
     <MESSAGE value="Small changes to para tab" />
     <MESSAGE value="Refactoring packages structure" />
     <MESSAGE value="CustomSearchbar introduced" />
-    <option name="LAST_COMMIT_MESSAGE" value="CustomSearchbar introduced" />
+    <MESSAGE value="Added img to searchbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added img to searchbar" />
   </component>
 </project>

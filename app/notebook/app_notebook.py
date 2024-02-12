@@ -3,11 +3,12 @@ from tkinter import ttk
 
 class AppNoteBook(ttk.Notebook):
 
-    def __init__(self, parent, frames, *args, **kwargs):
+    def __init__(self, parent, *args, **kwargs):
         ttk.Notebook.__init__(self, parent, *args, **kwargs)
         self.parent = parent
         self.frames = {}
 
+    def add_frames(self, frames):
         for tab_name, frame in frames.items():
             self.add_frame(tab_name, frame)
 
@@ -19,7 +20,7 @@ class AppNoteBook(ttk.Notebook):
         :return: None
         """
         self.frames[tab_name] = frame
-        self.add(frame(self), text=tab_name)
+        self.add(frame, text=tab_name)
 
     def show_tab(self, tab_name: str) -> None:
         """

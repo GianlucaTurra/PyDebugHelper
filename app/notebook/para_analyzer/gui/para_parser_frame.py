@@ -9,14 +9,14 @@ from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 
 class ParaParser(tk.Frame):
 
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        self.input_frame = InputFrame(self)
+        self.input_frame = input_frame(self)
         self.input_frame.grid(row=0, column=0)
 
-        self.output_frame = OutputFrame(self)
+        self.output_frame = output_frame(self)
         self.output_frame.grid(row=0, column=1)
 
         self.parse_button = ttk.Button(self, text='Formatta', command=self.format_para)
