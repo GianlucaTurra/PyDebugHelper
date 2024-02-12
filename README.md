@@ -8,7 +8,7 @@ https://github.com/GianlucaTurra/PyDebugHelper.git</p>
 <p>Dal menu 'code' scaricare il file zip del codice della 
 repository e estarlo nella directory di destinazione.</p>
 <h1>Avviare l'applicazione</h1>
-<p>Avviare tramite il file run.vbs.</p>
+<p>Avviare tramite il file Debug Helper.exe</p>
 <h1>Guida utilizzo</h1>
 <h3>DsAnalyzer</h3>
 <p>La scheda permette di confrontare due DS in input, 
