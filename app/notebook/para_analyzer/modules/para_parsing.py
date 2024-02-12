@@ -28,3 +28,17 @@ def check_tags(input_text: str) -> bool:
     if input_text.find('<,>') == -1:
         return False
     return True
+
+
+def para_to_dict(input_text: str) -> dict:
+    key_value_pairs: list = input_text.replace('\n', '').replace('<,>', '\n').split('\n')
+    key_value_pairs = [pair.split('<.>') for pair in key_value_pairs]
+    para_dict = {}
+    for pair in key_value_pairs[:-1]:
+        para_dict[pair[0]] = pair[1]
+    return para_dict
+
+
+def search_for_value(input_text: str, search_value: str) -> str:
+    para_dict = para_to_dict(input_text)
+    return para_dict[search_value]

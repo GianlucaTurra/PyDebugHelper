@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from app.notebook.para_analyzer.modules.para_parsing import format_para
+from app.notebook.para_analyzer.modules.para_parsing import format_para, para_to_dict, search_for_value
 from app.notebook.para_analyzer.gui.output_frame import OutputFrame
 from app.notebook.para_analyzer.gui.input_frame import InputFrame
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
@@ -25,6 +25,9 @@ class ParaParser(tk.Frame):
         self.search_bar = CustomSearchBar(self)
         self.search_bar.grid(row=2, column=0, columnspan=2, padx=50, pady=25)
 
+        self.search_result = ttk.Entry(self, state='readonly', width=40)
+        self.search_result.grid(row=3, column=0, columnspan=2, padx=50)
+
     def format_para(self) -> None:
         """
         Check if something is written inside the input text box.
@@ -38,3 +41,10 @@ class ParaParser(tk.Frame):
             return
         output_text = format_para(input_text)
         self.output_frame.text_box.set_read_only_value(output_text)
+
+    def search(self):
+        search_text = self.search_bar.search_value.get()
+        input_text = self.input_frame.get_input_text()
+        self.search_result.config(state='normal')
+        self.search_result.insert(0, search_for_value(input_text, search_text))
+        self.search_result.config(state='readonly')

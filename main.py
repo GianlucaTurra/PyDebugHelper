@@ -2,7 +2,7 @@
 Applicazione di supporto per il debug
 
 Author: Gianluca Turra
-Version: 0.2201
+Version: 0.241202
 """
 
 from app.application import run_app

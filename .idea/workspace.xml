@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added img to searchbar">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring classes structure to implement proper Dependecy injection.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/app_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/app_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/searchbar/custom_searchbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707497305284</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Refactoring classes structure to implement proper Dependecy injection.">
+      <option name="closed" value="true" />
+      <created>1707727100553</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707727100553</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,6 +313,7 @@
     <MESSAGE value="Refactoring packages structure" />
     <MESSAGE value="CustomSearchbar introduced" />
     <MESSAGE value="Added img to searchbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added img to searchbar" />
+    <MESSAGE value="Refactoring classes structure to implement proper Dependecy injection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring classes structure to implement proper Dependecy injection." />
   </component>
 </project>
