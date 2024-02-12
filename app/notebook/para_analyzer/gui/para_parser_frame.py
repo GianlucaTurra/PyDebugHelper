@@ -46,5 +46,6 @@ class ParaParser(tk.Frame):
         search_text = self.search_bar.search_value.get()
         input_text = self.input_frame.get_input_text()
         self.search_result.config(state='normal')
+        self.search_result.delete(0, tk.END)
         self.search_result.insert(0, search_for_value(input_text, search_text))
         self.search_result.config(state='readonly')
