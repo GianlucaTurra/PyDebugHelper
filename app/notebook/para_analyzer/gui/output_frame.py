@@ -14,3 +14,4 @@ class OutputFrame(ttk.Frame):
 
         self.text_box = CustomScrolledText(self, text_width=105, text_height=25)
         self.text_box.grid(row=1, column=0, padx=50, pady=25)
+        self.text_box.set_read_only_mode()
