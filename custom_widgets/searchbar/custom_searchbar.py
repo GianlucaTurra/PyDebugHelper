@@ -1,5 +1,7 @@
 import sys
-from pathlib import Path
+
+from PIL import Image, ImageTk
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -19,12 +21,24 @@ class CustomSearchBar(ttk.Frame):
         self.search_entry.grid(row=0, column=0)
         self.search_entry.bind('<Return>', lambda event: self.parent.search())
 
-        self.icon_image = tk.PhotoImage(file=r'custom_widgets/searchbar/img/search_icon.png')
-        self.icon = self.icon_image.subsample(38, 38)
+        self.icon_image = load_image(file_name=r'custom_widgets/searchbar/img/search_icon.png', subsample=38)
+        # self.icon = self.icon_image.subsample(38, 38)
 
         self.search_button = ttk.Button(
             self,
-            image=self.icon,
+            image=self.icon_image,
             command=lambda: self.parent.search()
         )
         self.search_button.grid(row=0, column=1)
+
+
+def load_image(file_name, subsample=None):
+    if hasattr(sys, '_MEIPASS'):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.getcwd()
+    image_path = os.path.join(base_path, file_name)
+    image = Image.open(image_path)
+    if subsample:
+        image = image.resize((image.width // subsample, image.height // subsample))
+    return ImageTk.PhotoImage(image)

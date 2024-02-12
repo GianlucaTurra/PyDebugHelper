@@ -42,7 +42,13 @@ class ParaParser(tk.Frame):
         output_text = format_para(input_text)
         self.output_frame.text_box.set_read_only_value(output_text)
 
-    def search(self):
+    def search(self) -> None:
+        """
+        Reads input from the textbox and the SearchBar entry.
+        The input text is mapped into a dictionary and the value retrieved using the
+        entry as the key.
+        :return:
+        """
         search_text = self.search_bar.search_value.get()
         input_text = self.input_frame.get_input_text()
         self.search_result.config(state='normal')
