@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
+from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
 from app.notebook.para_analyzer.modules.para_parsing import format_para, search_for_value
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 
@@ -48,7 +49,19 @@ class ParaParser(tk.Frame):
         :return:
         """
         search_text = self.search_bar.search_value.get().lower()
+        if search_text.strip() == '':
+            messagebox.showerror(
+                'Nessuna chiave per la ricerca',
+                f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
+            )
+            return
         input_text = self.input_frame.get_input_text().lower()
+        if input_text.strip() == '':
+            messagebox.showerror(
+                'Nessun input',
+                f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
+            )
+            return
         self.search_result.config(state='normal')
         self.search_result.delete(0, tk.END)
         self.search_result.insert(0, search_for_value(input_text, search_text))

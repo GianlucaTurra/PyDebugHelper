@@ -3,8 +3,7 @@ from typing import List, Dict, Tuple, Set
 
 from tkinter import messagebox
 
-from app.notebook.ds_analyzer.modules.data_structures_controls import split_if_not_qualified, check_if_value_is_num, check_if_value_is_int, \
-    check_for_empty_input, check_for_equal_length, check_for_equal_keys
+from app.notebook.ds_analyzer.modules.data_structures_controls import *
 
 
 def get_funny_exclamation() -> str:
@@ -87,7 +86,8 @@ def match_multiple_ds(data_structures: List[Dict]) -> Dict[str, Tuple] | None:
     if check_for_empty_input(data_structures):
         messagebox.showerror(
             'Nessun input',
-            f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!')
+            f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
+        )
         return
     if not check_for_equal_length(data_structures):
         show_ds_composition_error('length mismatch', data_structures)
@@ -108,5 +108,12 @@ def search_for_value(input_text: str, search_text: str) -> str:
     :param search_text: the key to search
     :return: searched key's value
     """
-    ds_dict = ds_to_dict(input_text)
-    return ds_dict[search_text]
+    try:
+        ds_dict = ds_to_dict(input_text)
+        return ds_dict[search_text]
+    except KeyError:
+        messagebox.showerror(
+            title='Chiave non trovata',
+            message=f'La chiave {search_text} non è presente nel testo in input!'
+        )
+        return ''

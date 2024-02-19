@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Creating an exe that should work properly. Fixed bug in para analyzer">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring of DS analyzer input frame, removed case-sensitive from search methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707749929500</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Refactoring of DS analyzer input frame, removed case-sensitive from search methods">
+      <option name="closed" value="true" />
+      <created>1708340038620</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708340038620</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +338,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Notebook" />
     <MESSAGE value="Created SqlParser Frame, started redesigning classes" />
     <MESSAGE value="Added little stuff to sql parser" />
     <MESSAGE value="Theoretically finished matching DS frames" />
@@ -357,6 +362,7 @@
     <MESSAGE value="Fixed searchbar result bug" />
     <MESSAGE value="Fixed crash with loading image from exe file" />
     <MESSAGE value="Creating an exe that should work properly. Fixed bug in para analyzer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating an exe that should work properly. Fixed bug in para analyzer" />
+    <MESSAGE value="Refactoring of DS analyzer input frame, removed case-sensitive from search methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of DS analyzer input frame, removed case-sensitive from search methods" />
   </component>
 </project>

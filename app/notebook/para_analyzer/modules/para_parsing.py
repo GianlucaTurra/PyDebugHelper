@@ -31,6 +31,11 @@ def check_tags(input_text: str) -> bool:
 
 
 def para_to_dict(input_text: str) -> dict:
+    """
+    Conversion function to return a dictionary from a given Palmax parameter list
+    :param input_text: a P_PARM's value
+    :return: Palmax P_PARM as a python dictionary
+    """
     key_value_pairs: list = input_text.replace('\n', '').replace('<,>', '\n').split('\n')
     key_value_pairs = [pair.split('<.>') for pair in key_value_pairs]
     para_dict = {}
@@ -39,6 +44,19 @@ def para_to_dict(input_text: str) -> dict:
     return para_dict
 
 
-def search_for_value(input_text: str, search_value: str) -> str:
-    para_dict = para_to_dict(input_text)
-    return para_dict[search_value]
+def search_for_value(input_text: str, search_text: str) -> str:
+    """
+    Return a parameter's value given its name
+    :param input_text: Palmax P_PARM
+    :param search_text: a specific parameter's name
+    :return: parameter's value
+    """
+    try:
+        para_dict = para_to_dict(input_text)
+        return para_dict[search_text]
+    except KeyError:
+        messagebox.showerror(
+            title='Chiave non trovata',
+            message=f'La chiave {search_text} non è presente nel testo in input!'
+        )
+        return ''

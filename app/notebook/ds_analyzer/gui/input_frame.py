@@ -1,9 +1,9 @@
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import tkinter as tk
 
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
-from app.notebook.ds_analyzer.modules.ds_matcher import search_for_value
+from app.notebook.ds_analyzer.modules.ds_matcher import search_for_value, get_funny_exclamation
 
 
 class InputFrame(ttk.Frame):
@@ -60,8 +60,20 @@ class InputBlock(ttk.Frame):
         Writes the value in the readonly entry
         :return:
         """
-        search_text = self.search_bar.search_value.get().lower()
-        input_text = self.text_box.get().lower()
+        search_text = self.search_bar.search_value.get().lower().strip()
+        if search_text.strip() == '':
+            messagebox.showerror(
+                'Nessuna chiave per la ricerca',
+                f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
+            )
+            return
+        input_text = self.text_box.get().lower().strip()
+        if input_text.strip() == '':
+            messagebox.showerror(
+                'Nessun input',
+                f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
+            )
+            return
         self.search_result.config(state='normal')
         self.search_result.delete(0, tk.END)
         self.search_result.insert(0, search_for_value(input_text, search_text))
