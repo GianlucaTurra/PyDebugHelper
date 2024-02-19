@@ -1,9 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from app.notebook.para_analyzer.modules.para_parsing import format_para, para_to_dict, search_for_value
-from app.notebook.para_analyzer.gui.output_frame import OutputFrame
-from app.notebook.para_analyzer.gui.input_frame import InputFrame
+from app.notebook.para_analyzer.modules.para_parsing import format_para, search_for_value
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 
 
@@ -49,8 +47,8 @@ class ParaParser(tk.Frame):
         entry as the key.
         :return:
         """
-        search_text = self.search_bar.search_value.get()
-        input_text = self.input_frame.get_input_text()
+        search_text = self.search_bar.search_value.get().lower()
+        input_text = self.input_frame.get_input_text().lower()
         self.search_result.config(state='normal')
         self.search_result.delete(0, tk.END)
         self.search_result.insert(0, search_for_value(input_text, search_text))

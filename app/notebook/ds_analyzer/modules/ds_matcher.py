@@ -99,3 +99,14 @@ def match_multiple_ds(data_structures: List[Dict]) -> Dict[str, Tuple] | None:
         if data_structures[0][ds1_key] != data_structures[1][ds1_key]:
             differences[ds1_key] = (data_structures[0][ds1_key], data_structures[1][ds1_key])
     return differences
+
+
+def search_for_value(input_text: str, search_text: str) -> str:
+    """
+    Returns the value of a given key after converting the input_text to a dictionary
+    :param input_text: a single DS
+    :param search_text: the key to search
+    :return: searched key's value
+    """
+    ds_dict = ds_to_dict(input_text)
+    return ds_dict[search_text]

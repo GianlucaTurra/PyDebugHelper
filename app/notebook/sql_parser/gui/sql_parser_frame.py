@@ -31,26 +31,32 @@ class SqlParser(tk.Frame):
             self.input_frame.grid_forget()
             self.output_frame.grid()
 
-    def format_sql_string(self, sql_string: str) -> None:
+    def format_sql_string(self, sql_string: str, string_case: bool) -> None:
         """
         Checks if there's some kind of input text, if none is provided returns to input_frame
         The string is first reformatted to a single line to avoid unwanted behaviors in the following parsing
         Input string is formatted with SQL keywords turned into uppercase
         Output frame text box content is updated with the formatted string (cleaning previous text)
+        By default the reserved keywords turn to uppercase while identifiers stay to lower. If the input's checkbutton
+        is selected displays the query to caps lock (values inside strings aren't included)
         Displays output frame and hides input frame
-        :param sql_string: String received from input frame
+        :param sql_string: String received from input frame's text box
+        :param string_case: bool received from input frame's checkbutton
         :return: None
         """
         if len(sql_string) == 0:
             text = f'{get_funny_exclamation()} qualcuno si è dimenticato di scrivere una query!'
             messagebox.showerror(title='Errore di inserimento', message=text)
             return
+        identifier_case = 'lower'
+        if string_case:
+            identifier_case = 'upper'
         sql_string = sql_string.replace('\n', '')
         formatted_sql_string = sqlparse.format(
             sql_string,
             reindent=True,
             keyword_case='upper',
-            identifier_case='lower',
+            identifier_case=identifier_case,
             use_space_around_operators=True,
             output_format='rpgle')
         self.output_frame.display_result(formatted_sql_string)

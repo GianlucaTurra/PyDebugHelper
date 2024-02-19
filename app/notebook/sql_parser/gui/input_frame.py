@@ -19,6 +19,17 @@ class InputFrame(tk.Frame):
         self.format_button = ttk.Button(self,
                                         text='Formatta',
                                         command=lambda: self.parent.format_sql_string(
-                                            self.input_box.get()
+                                            self.input_box.get(),
+                                            self.all_caps.get()
                                         ))
         self.format_button.grid(row=2, column=0, padx=50, pady=15)
+
+        self.all_caps = tk.BooleanVar()
+        self.all_caps_checkbox = ttk.Checkbutton(
+            self,
+            text='Formatta in CAPS LOCK',
+            variable=self.all_caps,
+            onvalue=True,
+            offvalue=False
+        )
+        self.all_caps_checkbox.grid(row=3, column=0, padx=50, pady=15)
