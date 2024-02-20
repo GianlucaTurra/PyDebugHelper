@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added validation to search bars input">
-      <change afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_keywords.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="SQL db2 reserved keywords highlight">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708349780777</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="SQL db2 reserved keywords highlight">
+      <option name="closed" value="true" />
+      <created>1708445660328</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708445660328</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,7 +359,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added little stuff to sql parser" />
     <MESSAGE value="Theoretically finished matching DS frames" />
     <MESSAGE value="Fixed bugs in sql_parser.py and its children" />
     <MESSAGE value="Fixed last things" />
@@ -372,6 +383,7 @@
     <MESSAGE value="Creating an exe that should work properly. Fixed bug in para analyzer" />
     <MESSAGE value="Refactoring of DS analyzer input frame, removed case-sensitive from search methods" />
     <MESSAGE value="Added validation to search bars input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added validation to search bars input" />
+    <MESSAGE value="SQL db2 reserved keywords highlight" />
+    <option name="LAST_COMMIT_MESSAGE" value="SQL db2 reserved keywords highlight" />
   </component>
 </project>

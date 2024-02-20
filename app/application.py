@@ -18,8 +18,7 @@ def style_configure(app_style: ttk.Style) -> None:
     app_style.configure('Title.TLabel', font=('Elvetica', 16))
     app_style.configure('Title.TFrame', background='#C7FFD8')
     app_style.configure('TButton', borderwidth=0)
-    # style.configure('TLabel', foreground='#98DED9', background='#F6F6F6')
-    # style.configure('TFrame', background='#F6F6F6')
+    app_style.configure('TText', font=('Elvetica', 20))
 
 
 root = tk.Tk()

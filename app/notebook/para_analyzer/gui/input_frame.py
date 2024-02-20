@@ -13,7 +13,7 @@ class InputFrame(ttk.Frame):
         self.title_label = ttk.Label(self, text='Parametri da formattare', style='Title.TLabel')
         self.title_label.grid(row=0, column=0, padx=50, pady=25)
 
-        self.text_box = CustomScrolledText(self, text_width=105, text_height=25)
+        self.text_box = CustomScrolledText(self, text_width=72, text_height=22)
         self.text_box.grid(row=1, column=0, padx=50, pady=25)
 
     def get_input_text(self) -> str | None:

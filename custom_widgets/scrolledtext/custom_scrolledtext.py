@@ -11,6 +11,7 @@ class CustomScrolledText(tk.Frame):
         # TODO #1: Use a function from the proper module
         # TODO #2: Change font size and make it editable
         style = ttk.Style()
+        style.configure('TLabel', font=('Elvetica', 12))
         default_font = style.lookup("TLabel", "font")
         self.text_widget = tk.Text(
             self,

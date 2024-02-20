@@ -15,7 +15,7 @@ class OutputFrame(tk.Frame):
         self.title_label = ttk.Label(self, text='Query sql formattata:', font=('Elvetica', 16))
         self.title_label.grid(row=0, column=0, padx=50, pady=25)
 
-        self.output_box = CustomScrolledText(self, text_width=237, text_height=30)
+        self.output_box = CustomScrolledText(self, text_width=157, text_height=25)
         self.output_box.grid(row=1, column=0, padx=50, pady=25)
 
         self.beck_to_insert = ttk.Button(
