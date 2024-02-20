@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+from app.notebook.sql_parser.modules.sql_keywords import SQL_DB2_KEYWORDS
+from app.notebook.sql_parser.modules.sql_parser import highlight_reserved_keywords
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 
 
@@ -31,3 +33,4 @@ class OutputFrame(tk.Frame):
         :return: None
         """
         self.output_box.set_read_only_value(input_text)
+        highlight_reserved_keywords(SQL_DB2_KEYWORDS, self.output_box.text_widget)

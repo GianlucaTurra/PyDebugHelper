@@ -1,9 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
-import sqlparse
-
 from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
+from app.notebook.sql_parser.modules.sql_parser import parse_sql_string
 
 FRAMES = ['input', 'output']
 
@@ -44,7 +43,7 @@ class SqlParser(tk.Frame):
         :param string_case: bool received from input frame's checkbutton
         :return: None
         """
-        if len(sql_string) == 0:
+        if len(sql_string.strip()) == 0:
             text = f'{get_funny_exclamation()} qualcuno si è dimenticato di scrivere una query!'
             messagebox.showerror(title='Errore di inserimento', message=text)
             return
@@ -52,12 +51,6 @@ class SqlParser(tk.Frame):
         if string_case:
             identifier_case = 'upper'
         sql_string = sql_string.replace('\n', '')
-        formatted_sql_string = sqlparse.format(
-            sql_string,
-            reindent=True,
-            keyword_case='upper',
-            identifier_case=identifier_case,
-            use_space_around_operators=True,
-            output_format='rpgle')
+        formatted_sql_string = parse_sql_string(sql_string, identifier_case)
         self.output_frame.display_result(formatted_sql_string)
         self.show_frame('output')
