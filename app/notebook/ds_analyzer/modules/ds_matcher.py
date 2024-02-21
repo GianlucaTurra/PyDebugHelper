@@ -39,7 +39,7 @@ def set_elements_message_printer(set_: set) -> str:
     return output
 
 
-def show_ds_composition_error(case: str, data_structures: List[Dict], app) -> None:
+def show_ds_composition_error(data_structures: List[Dict], app) -> None:
     """
     Opens TopLevel window to show DS composition errors
     :param case: (deprecated)
@@ -88,11 +88,8 @@ def match_multiple_ds(data_structures: List[Dict], app) -> Dict[str, Tuple] | No
             f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
         )
         return
-    if not check_for_equal_length(data_structures):
-        show_ds_composition_error('length mismatch', data_structures, app)
-        return
-    if not check_for_equal_keys(data_structures):
-        show_ds_composition_error('keys mismatch', data_structures, app)
+    if not check_for_equal_keys(data_structures) or not check_for_equal_length(data_structures):
+        show_ds_composition_error(data_structures, app)
         return
     for (ds1_key, ds2_key) in zip(data_structures[0].keys(), data_structures[1].keys()):
         if data_structures[0][ds1_key] != data_structures[1][ds1_key]:

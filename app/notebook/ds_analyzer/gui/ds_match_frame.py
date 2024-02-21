@@ -8,8 +8,10 @@ class DsMatchFrame(tk.Frame):
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
+
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
+
         self.frame = input_frame(self)
         self.frame.grid(sticky='nsew')
         self.output_frame = output_frame

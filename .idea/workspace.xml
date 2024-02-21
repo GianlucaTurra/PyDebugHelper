@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Changed font for text widgets">
-      <change afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_mismatch_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="TopLevel window to show DS keys mismatch">
       <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -347,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708447116447</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="TopLevel window to show DS keys mismatch">
+      <option name="closed" value="true" />
+      <created>1708533262609</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708533262609</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +367,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bugs in sql_parser.py and its children" />
     <MESSAGE value="Fixed last things" />
     <MESSAGE value="Removed useless file from version control" />
     <MESSAGE value="Added checkbox for sql formatting and docstrings" />
@@ -387,6 +391,7 @@
     <MESSAGE value="Added validation to search bars input" />
     <MESSAGE value="SQL db2 reserved keywords highlight" />
     <MESSAGE value="Changed font for text widgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed font for text widgets" />
+    <MESSAGE value="TopLevel window to show DS keys mismatch" />
+    <option name="LAST_COMMIT_MESSAGE" value="TopLevel window to show DS keys mismatch" />
   </component>
 </project>
