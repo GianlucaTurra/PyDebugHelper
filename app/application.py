@@ -21,22 +21,56 @@ def style_configure(app_style: ttk.Style) -> None:
     app_style.configure('TText', font=('Elvetica', 20))
 
 
-root = tk.Tk()
-root.title('Debug Utilities')
-root.state('zoomed')
-style = ttk.Style()
-style_configure(style)
-app = AppNoteBook(parent=root)
-frames = {
-    'Controllo DS': DsMatchFrame(app, DsInput, DsOutput),
-    'Sql parser': SqlParser(app, SqlInput, SqlOutput),
-    'Para parser': ParaParser(app, ParaInput, ParaOutput)
-}
-app.add_frames(frames)
-root.rowconfigure(0, weight=1)
-root.columnconfigure(0, weight=1)
-app.grid(sticky='nsew')
+class App(tk.Tk):
+
+    def __init__(self, notebook, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+
+        self.title('Debug Utilities')
+        self.state('zoomed')
+        self.style = ttk.Style()
+        self.frames = {
+            'Controllo DS': DsMatchFrame(notebook, DsInput, DsOutput),
+            'Sql parser': SqlParser(notebook, SqlInput, SqlOutput),
+            'Para parser': ParaParser(notebook, ParaInput, ParaOutput)
+        }
+        self.notebook = notebook(self)
+        self.notebook.add_frames(self.frames)
+        self.default_style_configure()
+        self.grid_configure()
+
+    def default_style_configure(self) -> None:
+        self.style.theme_use()
+        self.style.configure(style='Title.TLabel', font=('Elvetica', 16))
+        self.style.configure(style='Title.TFrame', background='#C7FFD8')
+        self.style.configure(style='TButton', borderwidth=0)
+        self.style.configure(style='TText', font=('Elvetica', 20))
+
+    def grid_configure(self) -> None:
+        self.rowconfigure(index=0, weight=1)
+        self.columnconfigure(index=0, weight=1)
+        self.notebook.grid(sticky='nsew')
+
+    def run(self) -> None:
+        self.mainloop()
 
 
-def run_app():
-    app.mainloop()
+# root = tk.Tk()
+# root.title('Debug Utilities')
+# root.state('zoomed')
+# style = ttk.Style()
+# style_configure(style)
+# app = AppNoteBook(parent=root)
+# frames = {
+#     'Controllo DS': DsMatchFrame(app, DsInput, DsOutput),
+#     'Sql parser': SqlParser(app, SqlInput, SqlOutput),
+#     'Para parser': ParaParser(app, ParaInput, ParaOutput)
+# }
+# app.add_frames(frames)
+# root.rowconfigure(0, weight=1)
+# root.columnconfigure(0, weight=1)
+# app.grid(sticky='nsew')
+#
+#
+# def run_app():
+#     app.mainloop()

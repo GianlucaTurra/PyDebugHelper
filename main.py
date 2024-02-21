@@ -5,11 +5,13 @@ Author: Gianluca Turra
 Version: 0.241202
 """
 
-from app.application import run_app
+from app.application import App
+from app.notebook.app_notebook import AppNoteBook
 
 
 def main():
-    run_app()
+    app = App(AppNoteBook)
+    app.run()
 
 
 if __name__ == '__main__':
