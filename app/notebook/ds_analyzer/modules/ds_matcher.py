@@ -1,8 +1,9 @@
 import random
-from typing import List, Dict, Tuple, Set
+from typing import Tuple, Set
 
 from tkinter import messagebox
 
+from app.notebook.ds_analyzer.gui.ds_mismatch_message import MismatchMessage
 from app.notebook.ds_analyzer.modules.data_structures_controls import *
 
 
@@ -15,7 +16,7 @@ def get_funny_exclamation() -> str:
     return exclamations[random.randint(0, len(exclamations) - 1)]
 
 
-def find_not_matching_keys(data_structures: List[Dict[str, str]]) -> Tuple[Set, Set]:
+def find_mismatching_keys(data_structures: List[Dict[str, str]]) -> Tuple[Set, Set]:
     """
     Compares data structures keys for non-matching keys
     :param data_structures: Data structures with non-matching keys
@@ -38,21 +39,18 @@ def set_elements_message_printer(set_: set) -> str:
     return output
 
 
-def show_ds_composition_error(case: str, data_structures: List[Dict]) -> None:
+def show_ds_composition_error(case: str, data_structures: List[Dict], app) -> None:
     """
-    Given an error case a different error message will be displayed
+    Opens TopLevel window to show DS composition errors
+    :param case: (deprecated)
+    :param data_structures: Two data structures to match
+    :param app: Tk app to anchor the TopLevel Window
+    :return: None
     """
-    text = ''
-    if case == 'length mismatch':
-        text = 'La lunghezza delle due DS non combacia.'
-    elif case == 'keys mismatch':
-        text = 'Le chiavi delle due DS non combaciano.'
-    left_diff = set_elements_message_printer(find_not_matching_keys(data_structures)[0])
-    right_diff = set_elements_message_printer(find_not_matching_keys(data_structures)[1])
-    message = (f'{text}\n'
-               f'Presenti solo a sinistra: {left_diff}\n'
-               f'Presenti solo a destra: {right_diff}')
-    messagebox.showerror(title='Strutture dati non corrispondenti', message=message)
+    mismatching_keys = dict()
+    mismatching_keys['left'] = find_mismatching_keys(data_structures)[0]
+    mismatching_keys['right'] = find_mismatching_keys(data_structures)[1]
+    MismatchMessage(app, mismatching_keys)
 
 
 def ds_to_dict(data_structure: str) -> dict:
@@ -75,11 +73,12 @@ def ds_to_dict(data_structure: str) -> dict:
     return ds
 
 
-def match_multiple_ds(data_structures: List[Dict]) -> Dict[str, Tuple] | None:
+def match_multiple_ds(data_structures: List[Dict], app) -> Dict[str, Tuple] | None:
     """
     If the data structures are not matching by length an askokcancel is raised
     If cancelled is pressed None will be return and further matching operations are aborted
     :param data_structures: Two data structures to compare
+    :param app: Passed to error function to display DS composition errors
     :return: Dictionary of entries with differences, values in a tuple
     """
     differences = {}
@@ -90,10 +89,10 @@ def match_multiple_ds(data_structures: List[Dict]) -> Dict[str, Tuple] | None:
         )
         return
     if not check_for_equal_length(data_structures):
-        show_ds_composition_error('length mismatch', data_structures)
+        show_ds_composition_error('length mismatch', data_structures, app)
         return
     if not check_for_equal_keys(data_structures):
-        show_ds_composition_error('keys mismatch', data_structures)
+        show_ds_composition_error('keys mismatch', data_structures, app)
         return
     for (ds1_key, ds2_key) in zip(data_structures[0].keys(), data_structures[1].keys()):
         if data_structures[0][ds1_key] != data_structures[1][ds1_key]:

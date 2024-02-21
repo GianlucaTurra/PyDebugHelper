@@ -23,7 +23,7 @@ class DsMatchFrame(tk.Frame):
         """
         ds_list = [ds_one, ds_two]
         ds_list = [ds_to_dict(ds) for ds in ds_list]
-        differences = match_multiple_ds(ds_list)
+        differences = match_multiple_ds(ds_list, self.parent)
         if differences is None:
             return
         self.frame.grid_forget()

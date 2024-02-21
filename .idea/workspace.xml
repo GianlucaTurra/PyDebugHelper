@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="SQL db2 reserved keywords highlight">
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Changed font for text widgets">
+      <change afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_mismatch_message.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/scrolledtext/custom_scrolledtext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708445660328</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Changed font for text widgets">
+      <option name="closed" value="true" />
+      <created>1708447116447</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708447116447</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,7 +362,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Theoretically finished matching DS frames" />
     <MESSAGE value="Fixed bugs in sql_parser.py and its children" />
     <MESSAGE value="Fixed last things" />
     <MESSAGE value="Removed useless file from version control" />
@@ -384,6 +386,7 @@
     <MESSAGE value="Refactoring of DS analyzer input frame, removed case-sensitive from search methods" />
     <MESSAGE value="Added validation to search bars input" />
     <MESSAGE value="SQL db2 reserved keywords highlight" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL db2 reserved keywords highlight" />
+    <MESSAGE value="Changed font for text widgets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed font for text widgets" />
   </component>
 </project>
