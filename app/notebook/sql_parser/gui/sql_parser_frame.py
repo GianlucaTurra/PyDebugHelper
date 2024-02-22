@@ -1,6 +1,6 @@
 from tkinter import messagebox, ttk
 
-from app.notebook.ds_analyzer.modules.ds_matcher import get_funny_exclamation
+from app.notebook.ds_matcher.modules.ds_matcher import get_funny_exclamation
 from app.notebook.sql_parser.modules.sql_parser import parse_sql_string
 
 FRAMES = ['input', 'output']

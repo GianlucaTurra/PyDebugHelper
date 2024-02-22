@@ -3,8 +3,8 @@ from typing import Tuple, Set
 
 from tkinter import messagebox
 
-from app.notebook.ds_analyzer.gui.ds_mismatch_message import MismatchMessage
-from app.notebook.ds_analyzer.modules.data_structures_controls import *
+from app.notebook.ds_matcher.gui.ds_mismatch_message import MismatchMessage
+from app.notebook.ds_matcher.modules.data_structures_controls import *
 
 
 def get_funny_exclamation() -> str:

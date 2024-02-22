@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
-from app.notebook.ds_analyzer.gui.ds_match_frame import DsMatchFrame
-from app.notebook.ds_analyzer.gui.input_frame import InputFrame as DsInput
-from app.notebook.ds_analyzer.gui.output_frame import OutputFrame as DsOutput
+from app.notebook.ds_matcher.gui.frame.ds_match_frame import DsMatchFrame
+from app.notebook.ds_matcher.gui.frame.input_frame import InputFrame as DsInput
+from app.notebook.ds_matcher.gui.frame.output_frame import OutputFrame as DsOutput
 from app.notebook.para_analyzer.gui.para_parser_frame import ParaParser
 from app.notebook.para_analyzer.gui.input_frame import InputFrame as ParaInput
 from app.notebook.para_analyzer.gui.output_frame import OutputFrame as ParaOutput

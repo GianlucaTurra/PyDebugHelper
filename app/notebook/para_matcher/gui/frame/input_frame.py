@@ -3,7 +3,7 @@ import tkinter as tk
 
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
-from app.notebook.ds_analyzer.modules.ds_matcher import search_for_value, get_funny_exclamation
+from app.notebook.ds_matcher.modules.ds_matcher import search_for_value, get_funny_exclamation
 
 
 class InputFrame(ttk.Frame):
@@ -12,10 +12,10 @@ class InputFrame(ttk.Frame):
         super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
-        self.block_one = InputBlock(self, 'Data Structure 1')
+        self.block_one = InputBlock(self, 'Parametro 1')
         self.block_one.grid(row=0, column=0)
 
-        self.block_two = InputBlock(self, 'Data Structure 2')
+        self.block_two = InputBlock(self, 'Parametro 2')
         self.block_two.grid(row=0, column=1)
 
         self.match_button = ttk.Button(
@@ -63,7 +63,7 @@ class InputBlock(ttk.Frame):
         search_text = self.search_bar.search_value.get().lower().strip()
         if search_text.strip() == '':
             messagebox.showerror(
-                'Nessuna chiave per la ricerca',
+                'Nessun parametro per la ricerca',
                 f'{get_funny_exclamation()} sembra che qualcuno si sia dimenticato di scrivere qualcosa!'
             )
             return

@@ -1,6 +1,6 @@
 from tkinter import ttk
 
-from app.notebook.ds_analyzer.modules.ds_matcher import ds_to_dict, match_multiple_ds
+from app.notebook.ds_matcher.modules.ds_matcher import ds_to_dict, match_multiple_ds
 
 
 class DsMatchFrame(ttk.Frame):
