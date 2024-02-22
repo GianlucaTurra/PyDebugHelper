@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 from app.notebook.ds_matcher.modules.ds_matcher import get_funny_exclamation
-from app.notebook.para_analyzer.modules.para_parsing import format_para, search_for_value
+from app.notebook.para_parser.modules.para_parsing import format_para, search_for_value
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 
 

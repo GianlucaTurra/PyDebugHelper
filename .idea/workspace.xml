@@ -4,34 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Refactoring classes to properly use super().__init__">
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/input_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/output_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/para_match_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_parser/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/para_notebook.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/para_parser/modules/__init__.py" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Partially implemented para matcher">
+      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/modules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/modules/para_controls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/para_matcher/modules/para_matcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/ds_match_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/ds_mismatch_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/ds_mismatch_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/data_structures_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/modules/data_structures_controls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_analyzer/modules/ds_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/modules/ds_matcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/modules/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_matcher/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/output_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/output_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/para_parser_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_analyzer/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/modules/para_parsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/gui/sql_parser_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/para_match_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/para_match_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_parser/gui/para_parser_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/para_parser_frame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,17 +46,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/app/notebook/para_matcher/gui/frame",
+    "last_opened_file_path": "C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/app/notebook/para_matcher/modules",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\modules" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\gui\frame" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\custom_widgets\searchbar\img" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\PyDsMatcher" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
@@ -411,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708595000345</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Partially implemented para matcher">
+      <option name="closed" value="true" />
+      <created>1708619001541</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708619001541</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created custom scrolledtext widget" />
     <MESSAGE value="Started refactoring scrolledtext to custom widget" />
     <MESSAGE value="Refactoring of textbox, first changes to style" />
     <MESSAGE value="Sql parse always removes \n" />
@@ -451,6 +438,7 @@
     <MESSAGE value="Refactoring app to be a class" />
     <MESSAGE value="Refactoring to use oop in App" />
     <MESSAGE value="Refactoring classes to properly use super().__init__" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring classes to properly use super().__init__" />
+    <MESSAGE value="Partially implemented para matcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partially implemented para matcher" />
   </component>
 </project>

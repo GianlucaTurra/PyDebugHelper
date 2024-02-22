@@ -1,6 +1,6 @@
 from tkinter import ttk
 
-from app.notebook.ds_matcher.modules.ds_matcher import ds_to_dict, match_multiple_ds
+from app.notebook.para_matcher.modules.para_matcher import para_to_dict, match_multiple_params
 
 
 class ParaMatchFrame(ttk.Frame):
