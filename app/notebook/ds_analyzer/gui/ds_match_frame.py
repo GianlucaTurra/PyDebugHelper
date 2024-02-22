@@ -6,7 +6,7 @@ from app.notebook.ds_analyzer.modules.ds_matcher import ds_to_dict, match_multip
 class DsMatchFrame(ttk.Frame):
 
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.rowconfigure(0, weight=1)

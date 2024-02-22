@@ -5,7 +5,7 @@ from tkinter import ttk
 class CustomScrolledText(tk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, *args, parent)
+        super().__init__(parent, *args)
         self.parent = parent
 
         # TODO #1: Use a function from the proper module

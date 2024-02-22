@@ -11,7 +11,7 @@ import os
 class CustomSearchBar(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.current_module_path = os.path.abspath(__file__)

@@ -6,7 +6,7 @@ from typing import Dict
 class MismatchMessage(tk.Toplevel):
 
     def __init__(self, parent, mismatching_keys: Dict, *args, **kwargs):
-        tk.Toplevel.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
         self.title('Errore inserimento chiavi')
 

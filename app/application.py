@@ -15,7 +15,7 @@ from app.notebook.sql_parser.gui.output_frame import OutputFrame as SqlOutput
 class App(tk.Tk):
 
     def __init__(self, notebook, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.title('Debug Utilities')
         self.state('zoomed')

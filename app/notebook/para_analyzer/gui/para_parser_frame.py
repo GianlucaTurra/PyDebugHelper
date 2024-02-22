@@ -9,7 +9,7 @@ from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
 class ParaParser(ttk.Frame):
 
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.input_frame = input_frame(self)

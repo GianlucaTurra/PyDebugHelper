@@ -6,7 +6,7 @@ from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 class OutputFrame(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.title_label = ttk.Label(self, text='Parametri formattati', style='Title.TLabel')

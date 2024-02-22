@@ -9,7 +9,7 @@ from app.notebook.ds_analyzer.modules.ds_matcher import search_for_value, get_fu
 class InputFrame(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.block_one = InputBlock(self, 'Data Structure 1')

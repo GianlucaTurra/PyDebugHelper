@@ -4,7 +4,7 @@ from tkinter import ttk
 class AppNoteBook(ttk.Notebook):
 
     def __init__(self, parent, *args, **kwargs):
-        ttk.Notebook.__init__(self, parent, *args, **kwargs)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
         self.frames = {}
 
