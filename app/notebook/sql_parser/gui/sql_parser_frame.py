@@ -7,10 +7,10 @@ from app.notebook.sql_parser.modules.sql_parser import parse_sql_string
 FRAMES = ['input', 'output']
 
 
-class SqlParser(tk.Frame):
+class SqlParser(ttk.Frame):
 
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
         self.output_frame = output_frame(self)
         self.input_frame = input_frame(self)

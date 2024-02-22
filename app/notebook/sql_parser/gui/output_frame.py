@@ -6,10 +6,10 @@ from app.notebook.sql_parser.modules.sql_parser import highlight_reserved_keywor
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 
 
-class OutputFrame(tk.Frame):
+class OutputFrame(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
         self.title_label = ttk.Label(self, text='Query sql formattata:', font=('Elvetica', 16))

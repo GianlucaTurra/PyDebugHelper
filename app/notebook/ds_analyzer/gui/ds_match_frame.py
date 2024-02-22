@@ -1,12 +1,12 @@
-import tkinter as tk
+from tkinter import ttk
 
 from app.notebook.ds_analyzer.modules.ds_matcher import ds_to_dict, match_multiple_ds
 
 
-class DsMatchFrame(tk.Frame):
+class DsMatchFrame(ttk.Frame):
 
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
         self.rowconfigure(0, weight=1)

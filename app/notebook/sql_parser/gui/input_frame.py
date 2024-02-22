@@ -4,10 +4,10 @@ from tkinter import ttk
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 
 
-class InputFrame(tk.Frame):
+class InputFrame(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
         self.title_label = ttk.Label(self, text='Query sql da riformattare:', font=('Elvetica', 16))
