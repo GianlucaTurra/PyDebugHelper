@@ -8,9 +8,12 @@ https://github.com/GianlucaTurra/PyDebugHelper.git</p>
 <p>Dal menu 'code' scaricare il file zip del codice della 
 repository e estarlo nella directory di destinazione.</p>
 <h1>Avviare l'applicazione</h1>
+<h3>Python interpreter installato</h3>
+<p>Avviare da run.vbs oppure run.bat</p>
+<h3>Senza Python interpreter</h3>
 <p>Avviare tramite il file Debug Helper.exe</p>
 <h1>Guida utilizzo</h1>
-<h3>DsAnalyzer</h3>
+<h3>DsMatcher</h3>
 <p>La scheda permette di confrontare due DS in input, 
 siano esse qualificate o non. Confrontandole trova i campi
 che presentano differenze e li mostra in un nuovo frame.
@@ -22,25 +25,27 @@ le righe 'spezzate' dalla visualizzazione in debug della
 sessione carattere dell'AS400.</p>
 <p>Al momento non sono previsti controlli di sintassi 
 sulla query.</p>
-<h3>ParaAnalyzer</h3>
+<h3>ParaParser</h3>
 <p>La scheda permette di visualizzare i parametri in input
 o output di JG come una lista di coppie chiave valore nel
 formato [chiave = valore]. È possibile ricercare il valore
 di un singolo parametro tramite la barra di ricerca.</p>
+<h3>ParaMatcher</h3>
+<p>Funzionamento analogo a DsMatcher</p>
 <h1>Feature programmate</h1>
-<h3>DsAnalyzer:</h3>
+<h3>DsMatcher:</h3>
 <ul>
-<li>Barra di ricerca per entrambe le DS.</li>
+<li>Evidenziare le chiavi cercate con la barra di ricerca</li>
 </ul>
 <h3>SqlParser</h3>
 <ul>
-<li>Parole chiave SQL evidenziate dopo la formattazione.</li>
+<li>Maggiore personalizzazione nel formattare la query</li>
 </ul>
-<h3>ParaAnalyzer</h3>
+<h3>ParaParser</h3>
 <ul>
-<li>Possibilità di confrontare due liste di parametri
-come nella scheda DsAnalyzer.</li>
+<li>Evidenziare il parametro cercato dalla barra di ricerca</li>
 </ul>
+<li>Evidenziare il parametro cercato dalla barra di ricerca</li>
 <h3>Genriche</h3>
 <ul>
 <li>Possibilità di customizzare il font nelle text box.</li>
