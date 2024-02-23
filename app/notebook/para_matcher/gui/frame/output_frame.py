@@ -1,7 +1,7 @@
 from tkinter import ttk
 
 
-class OutputFrame(ttk.Frame):
+class ParaMatchOutput(ttk.Frame):
 
     def __init__(self, parent, results: dict, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)

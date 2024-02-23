@@ -50,7 +50,9 @@ def show_ds_composition_error(data_structures: List[Dict], app) -> None:
     mismatching_keys = dict()
     mismatching_keys['left'] = find_mismatching_keys(data_structures)[0]
     mismatching_keys['right'] = find_mismatching_keys(data_structures)[1]
-    MismatchMessage(app, mismatching_keys)
+    MismatchMessage(app, mismatching_keys, 'Sono state trovate alcune differenze fra le chiavi delle DS, '
+                                           'non è possibile eseguire il confronto.')
+
 
 
 def ds_to_dict(data_structure: str) -> dict:

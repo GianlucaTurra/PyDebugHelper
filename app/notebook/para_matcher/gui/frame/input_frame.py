@@ -3,10 +3,10 @@ import tkinter as tk
 
 from custom_widgets.scrolledtext.custom_scrolledtext import CustomScrolledText
 from custom_widgets.searchbar.custom_searchbar import CustomSearchBar
-from app.notebook.ds_matcher.modules.ds_matcher import search_for_value, get_funny_exclamation
+from app.notebook.para_matcher.modules.para_matcher import get_funny_exclamation, search_for_value
 
 
-class InputFrame(ttk.Frame):
+class ParaMatchInput(ttk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)

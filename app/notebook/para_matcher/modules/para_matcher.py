@@ -3,7 +3,7 @@ from typing import Tuple, Set
 
 from tkinter import messagebox
 
-from app.notebook.ds_matcher.gui.ds_mismatch_message import MismatchMessage
+from app.notebook.para_matcher.gui.para_mismatch_message import MismatchMessage
 from app.notebook.ds_matcher.modules.data_structures_controls import *
 
 
@@ -37,7 +37,8 @@ def show_para_composition_error(params: List[Dict], app) -> None:
     mismatching_keys = dict()
     mismatching_keys['left'] = find_mismatching_keys(params)[0]
     mismatching_keys['right'] = find_mismatching_keys(params)[1]
-    MismatchMessage(app, mismatching_keys)
+    MismatchMessage(app, mismatching_keys, 'Sono state trovate alcune differenze fra i parametri inseriti, '
+                                           'non è possibile eseguire il confronto.')
 
 
 def para_to_dict(input_text: str) -> dict:
@@ -86,11 +87,11 @@ def search_for_value(input_text: str, search_text: str) -> str:
     :return: searched key's value
     """
     try:
-        ds_dict = ds_to_dict(input_text)
-        return ds_dict[search_text]
+        para_dict = para_to_dict(input_text)
+        return para_dict[search_text]
     except KeyError:
         messagebox.showerror(
-            title='Chiave non trovata',
-            message=f'La chiave {search_text} non è presente nel testo in input!'
+            title='Parametro non trovato',
+            message=f'Il parametro {search_text} non è presente nel testo in input!'
         )
         return ''

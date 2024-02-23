@@ -11,18 +11,19 @@ class InputFrame(ttk.Frame):
         self.parent = parent
 
         self.title_label = ttk.Label(self, text='Query sql da riformattare:', font=('Elvetica', 16))
-        self.title_label.grid(row=0, column=0, padx=50, pady=25)
+        self.title_label.grid(row=0, column=0, columnspan=2, padx=50, pady=25)
 
         self.input_box = CustomScrolledText(self, text_width=157, text_height=25)
-        self.input_box.grid(row=1, column=0, padx=50, pady=25)
+        self.input_box.grid(row=1, column=0, columnspan=2, padx=50, pady=25)
 
         self.format_button = ttk.Button(self,
                                         text='Formatta',
                                         command=lambda: self.parent.format_sql_string(
                                             self.input_box.get(),
-                                            self.all_caps.get()
+                                            self.all_caps.get(),
+                                            self.compact_format.get()
                                         ))
-        self.format_button.grid(row=2, column=0, padx=50, pady=15)
+        self.format_button.grid(row=2, column=0, columnspan=2, padx=50, pady=15)
 
         self.all_caps = tk.BooleanVar()
         self.all_caps_checkbox = ttk.Checkbutton(
@@ -33,3 +34,13 @@ class InputFrame(ttk.Frame):
             offvalue=False
         )
         self.all_caps_checkbox.grid(row=3, column=0, padx=50, pady=15)
+
+        self.compact_format = tk.BooleanVar()
+        self.compact_format_checkbox = ttk.Checkbutton(
+            self,
+            text='Formato compatto',
+            variable=self.compact_format,
+            onvalue=True,
+            offvalue=False
+        )
+        self.compact_format_checkbox.grid(row=3, column=1, padx=50, pady=15)

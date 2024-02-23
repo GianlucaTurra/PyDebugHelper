@@ -8,7 +8,7 @@ class MismatchMessage(tk.Toplevel):
     def __init__(self, parent, mismatching_keys: Dict, text: str, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
         self.parent = parent
-        self.title('Errore inserimento chiavi')
+        self.title('Errore inserimento parametri')
 
         self.error_message = text
         self.message = ttk.Label(self, text=self.error_message, foreground='red')

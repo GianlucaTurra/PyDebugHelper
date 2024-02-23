@@ -14,13 +14,14 @@ def highlight_reserved_keywords(reserved_keywords: set, text_widget) -> None:
         text_widget.tag_config("start", foreground="blue", font=('Elvetica', 12, 'bold'))
 
 
-def parse_sql_string(sql_string: str, identifier_case: str) -> str:
+def parse_sql_string(sql_string: str, identifier_case: str, wrap_limit: int) -> str:
     formatted_sql_string = sqlparse.format(
         sql_string,
         reindent=True,
         keyword_case='upper',
         identifier_case=identifier_case,
         use_space_around_operators=True,
-        output_format='rpgle'
+        output_format='rpgle',
+        wrap_after=wrap_limit
     )
     return formatted_sql_string

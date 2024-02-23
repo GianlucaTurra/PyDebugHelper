@@ -3,7 +3,7 @@ from tkinter import ttk
 from app.notebook.para_matcher.modules.para_matcher import para_to_dict, match_multiple_params
 
 
-class ParaMatchFrame(ttk.Frame):
+class ParaMatcher(ttk.Frame):
 
     def __init__(self, parent, input_frame, output_frame, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)

@@ -29,7 +29,7 @@ class SqlParser(ttk.Frame):
             self.input_frame.grid_forget()
             self.output_frame.grid()
 
-    def format_sql_string(self, sql_string: str, string_case: bool) -> None:
+    def format_sql_string(self, sql_string: str, string_case: bool, compact_format: bool) -> None:
         """
         Checks if there's some kind of input text, if none is provided returns to input_frame
         The string is first reformatted to a single line to avoid unwanted behaviors in the following parsing
@@ -40,6 +40,7 @@ class SqlParser(ttk.Frame):
         Displays output frame and hides input frame
         :param sql_string: String received from input frame's text box
         :param string_case: bool received from input frame's checkbutton
+        :param compact_format: bool received from input frame's checkbutton
         :return: None
         """
         if len(sql_string.strip()) == 0:
@@ -47,9 +48,12 @@ class SqlParser(ttk.Frame):
             messagebox.showerror(title='Errore di inserimento', message=text)
             return
         identifier_case = 'lower'
+        wrap_limit = 0
         if string_case:
             identifier_case = 'upper'
+        if compact_format:
+            wrap_limit = 40
         sql_string = sql_string.replace('\n', '')
-        formatted_sql_string = parse_sql_string(sql_string, identifier_case)
+        formatted_sql_string = parse_sql_string(sql_string, identifier_case, wrap_limit)
         self.output_frame.display_result(formatted_sql_string)
         self.show_frame('output')
