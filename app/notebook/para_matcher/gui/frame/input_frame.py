@@ -38,7 +38,7 @@ class InputBlock(ttk.Frame):
         self.title = ttk.Label(self, text=title, font=('Elvetica', 16))
         self.title.grid(row=0, column=0, padx=50, pady=25)
 
-        self.text_box = CustomScrolledText(self, text_width=72, text_height=25)
+        self.text_box = CustomScrolledText(self, text_width=72, text_height=20)
         self.text_box.grid(row=1, column=0, padx=50, pady=25)
 
         self.search_bar = CustomSearchBar(self)

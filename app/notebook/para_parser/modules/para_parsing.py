@@ -13,8 +13,12 @@ def format_para(input_text: str) -> str | None:
     if not check_tags(input_text):
         messagebox.showerror(title='Errore parametro', message=PARA_ERROR)
         return
-    input_text = input_text.replace('\n', '').replace('<,>', '\n').replace('<.>', ' = ')
-    return input_text
+    # input_text = input_text.replace('\n', '').replace('<,>', '\n').replace('<.>', ' = ')
+    para_dict = para_to_dict(input_text)
+    output_text = ''
+    for key, value in para_dict.items():
+        output_text += f'{key} = {value}'
+    return output_text
 
 
 def check_tags(input_text: str) -> bool:
@@ -40,6 +44,9 @@ def para_to_dict(input_text: str) -> dict:
     key_value_pairs = [pair.split('<.>') for pair in key_value_pairs]
     para_dict = {}
     for pair in key_value_pairs[:-1]:
+        if len(pair) > 2:
+            para_dict[f'{pair[0]}.{pair[1]}'] = pair[2]
+            continue
         para_dict[pair[0]] = pair[1]
     return para_dict
 

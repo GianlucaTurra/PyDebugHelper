@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Added Para matcher to notebook, added compact format checkbox">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="New version">
+      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/field_match_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_parser/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/input_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/para_parser/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/modules/para_parsing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +43,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.para_parser.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/app/notebook/para_matcher/gui",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.para_parser.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/app/notebook/para_matcher/gui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\gui" />
@@ -55,10 +64,10 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer\gui" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer\gui\para_parser" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\custom_widgets\searchbar" />
     </key>
   </component>
@@ -94,7 +103,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -411,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708694784468</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="New version">
+      <option name="closed" value="true" />
+      <created>1708700815617</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708700815617</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,7 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sql parse always removes \n" />
     <MESSAGE value="Started with para xml parser" />
     <MESSAGE value="Added IN/OUT_PARA parser gui tab and basic function" />
     <MESSAGE value="Small changes to para tab" />
@@ -451,6 +467,7 @@
     <MESSAGE value="Partially implemented para matcher" />
     <MESSAGE value="Para matcher coded but not added to the notebook" />
     <MESSAGE value="Added Para matcher to notebook, added compact format checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Para matcher to notebook, added compact format checkbox" />
+    <MESSAGE value="New version" />
+    <option name="LAST_COMMIT_MESSAGE" value="New version" />
   </component>
 </project>
