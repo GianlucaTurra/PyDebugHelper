@@ -13,11 +13,10 @@ def format_para(input_text: str) -> str | None:
     if not check_tags(input_text):
         messagebox.showerror(title='Errore parametro', message=PARA_ERROR)
         return
-    # input_text = input_text.replace('\n', '').replace('<,>', '\n').replace('<.>', ' = ')
     para_dict = para_to_dict(input_text)
     output_text = ''
     for key, value in para_dict.items():
-        output_text += f'{key} = {value}'
+        output_text += f'{key} = {value}\n'
     return output_text
 
 

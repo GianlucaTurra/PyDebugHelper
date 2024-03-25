@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="New version">
-      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/field_match_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/notebook/field_matcher/gui/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_13_49__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="New theme, fixed para parsing bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ds_matcher/gui/frame/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_matcher/gui/frame/input_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/para_parser/gui/input_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/gui/input_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/notebook/para_parser/modules/para_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/para_parser/modules/para_parsing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -43,25 +35,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.para_parser.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher/app/notebook/para_matcher/gui&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "Python.para_parser.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/giatur/Desktop/Nuova cartella/Debug utilities suit/PyDsMatcher",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\gui" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\modules" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_matcher\gui\frame" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
@@ -428,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708700815617</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="New theme, fixed para parsing bug">
+      <option name="closed" value="true" />
+      <created>1711363975584</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1711363975584</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started with para xml parser" />
     <MESSAGE value="Added IN/OUT_PARA parser gui tab and basic function" />
     <MESSAGE value="Small changes to para tab" />
     <MESSAGE value="Refactoring packages structure" />
@@ -468,6 +467,7 @@
     <MESSAGE value="Para matcher coded but not added to the notebook" />
     <MESSAGE value="Added Para matcher to notebook, added compact format checkbox" />
     <MESSAGE value="New version" />
-    <option name="LAST_COMMIT_MESSAGE" value="New version" />
+    <MESSAGE value="New theme, fixed para parsing bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="New theme, fixed para parsing bug" />
   </component>
 </project>

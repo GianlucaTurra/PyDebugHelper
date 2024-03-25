@@ -35,9 +35,8 @@ class App(tk.Tk):
         self.grid_configure()
 
     def default_style_configure(self) -> None:
-        self.tk.call('source', './custom_themes/tkinter_dark_theme/azure dark/azure dark.tcl')
-        self.style.theme_use('azure')
-        self.style.configure(style='Title.TLabel', font=('Elvetica', 16), foreground='white')
+        self.style.theme_use()
+        self.style.configure(style='Title.TLabel', font=('Elvetica', 16))
         self.style.configure(style='TEntry', font=('Elvetica', 12))
         self.style.configure(style='Title.TFrame', background='#C7FFD8')
         self.style.configure(style='TButton', borderwidth=0, font=('Elvetica', 12), foreground='white')
