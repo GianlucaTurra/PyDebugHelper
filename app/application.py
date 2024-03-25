@@ -39,7 +39,7 @@ class App(tk.Tk):
         self.style.configure(style='Title.TLabel', font=('Elvetica', 16))
         self.style.configure(style='TEntry', font=('Elvetica', 12))
         self.style.configure(style='Title.TFrame', background='#C7FFD8')
-        self.style.configure(style='TButton', borderwidth=0, font=('Elvetica', 12), foreground='white')
+        self.style.configure(style='TButton', borderwidth=0, font=('Elvetica', 12))
         self.style.configure(style='TText', font=('Elvetica', 20))
 
     def grid_configure(self) -> None:
