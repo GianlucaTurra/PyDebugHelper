@@ -15,6 +15,7 @@ def highlight_reserved_keywords(reserved_keywords: set, text_widget) -> None:
 
 
 def parse_sql_string(sql_string: str, identifier_case: str, wrap_limit: int) -> str:
+    sql_string.replace('\n', ' ')
     formatted_sql_string = sqlparse.format(
         sql_string,
         reindent=True,
