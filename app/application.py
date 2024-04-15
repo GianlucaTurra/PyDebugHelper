@@ -13,6 +13,9 @@ from app.notebook.para_parser.gui.output_frame import OutputFrame as ParaOutput
 from app.notebook.sql_parser.gui.sql_parser_frame import SqlParser
 from app.notebook.sql_parser.gui.input_frame import InputFrame as SqlInput
 from app.notebook.sql_parser.gui.output_frame import OutputFrame as SqlOutput
+from app.notebook.ui_builder.gui.ui_generator import UiGenerator
+from app.notebook.ui_builder.gui.input_form import InputForm as UiGeneratorInput
+from app.notebook.ui_builder.gui.output_notebook import OutputNoteBook as UiNoteBook
 
 
 class App(tk.Tk):
@@ -28,7 +31,8 @@ class App(tk.Tk):
             'Controllo DS': DsMatchFrame(self.notebook, DsInput, DsOutput),
             'Sql parser': SqlParser(self.notebook, SqlInput, SqlOutput),
             'Para parser': ParaParser(self.notebook, ParaInput, ParaOutput),
-            'Controllo Para': ParaMatcher(self.notebook, ParaMatchInput, ParaMatchOutput)
+            'Controllo Para': ParaMatcher(self.notebook, ParaMatchInput, ParaMatchOutput),
+            'Creazione UI': UiGenerator(self.notebook, UiGeneratorInput, UiNoteBook)
         }
         self.notebook.add_frames(self.frames)
         self.default_style_configure()

@@ -1,0 +1,167 @@
+      **************************************************************************
+      * CANCELLAZIONE FILE
+      **************************************************************************
+9000  * xxxyyy 20220418 WORKITEM
+      * Programma nuovo - versione 9
+      **************************************************************************
+      *  PARAMETRI INPUT:
+      *    P_RTCD    = Tipo elaborazione
+      *                 '  ' = Cancellazione Record
+      *                      Riceve:
+      *                       P_YFILED = Chiave del Record da Cancellare
+      *                       P_YFILEA = ' '
+      *                 '1 ' = Cancellazione Range di Record
+      *                        (tutte le righe corripondenti a un record di testata)
+      *                      Riceve:
+      *                       P_YFILED = Chiave di "inizio range" per cancellazione
+      *                       P_YFILEA = Chiave di "fine range" per cancellazione
+      *                 'LR' = Chiusura Pgm
+      *    P_TPEL    = Inserimento / Modifica
+      *                 '0 ' = Modifica
+      *                 '1 ' = Inserimento
+      *    P_FUNZ    = Simulazione Tasti Funzione
+      *    P_NMES    = Schiera Messaggi di Errore
+      *    P_NFLD    = Schiera Campo che ha generato l'Errore
+      *    P_CFLD    = Schiera costanti da concatenare all'Errore
+      *    P_PGNA    = Nome programma chiamante
+      *    P_YFILED  = Chiave di "inizio range" record da cancellare
+      *    P_YFILEA  = Chiave di "fine range" del record da cancellare
+      *
+      *  RESTITUISCE:
+      *    P_RTCD    = Elaborazione terminata correttamente/con errori
+      *                 '1 ' Cancellazione terminata in modo anomalo
+      *                 '  ' Cancellazione terminata correttamente
+      *    P_NMES    = Schiera Messaggi di Errore
+      *    P_YFILED  = Chiave di "inizio range" record da cancellare
+      *    P_YFILEA  = Chiave di "fine range" del record da cancellare
+      **************************************************************************
+     FYFILE00F  UF   E           K Disk
+      *-------------------------------------------------------------------------
+      * Dichiarazione variabili di lavoro
+      *-------------------------------------------------------------------------
+     D W_IDXERR        S              4  0
+     D W_RTCD          S                   Like(P_RTCD)
+      *-------------------------------------------------------------------------
+      * Dichiarazione variabili logiche
+      *-------------------------------------------------------------------------
+     D I_NUOVOREC      S               N   Inz(*Off)
+     D I_EOF           S               N   Inz(*Off)
+      *-------------------------------------------------------------------------
+      * Dichiarazione procedure
+      *-------------------------------------------------------------------------
+      * Prototipo input
+     D YFILE00D        PR
+     D  P_RTCD                             Like(P_RTCD)
+     D  P_TPEL                             Like(P_TPEL)
+     D  P_FUNZ                             Like(P_FUNZ)
+     D  P_NMES                        7    Dim(10)
+     D  P_NFLD                       10    Dim(10)
+     D  P_CFLD                      256    Dim(10)
+     D  P_PGNA                             Like(P_PGNA)
+     D  P_YFILED                           LikeRec(YFILE:*KEY)
+     D  P_YFILEA                           LikeRec(YFILE:*KEY)
+      *
+      * Prototipo interfaccia
+     D YFILE00D        PI
+     D  P_RTCD                        2
+     D  P_TPEL                        1
+     D  P_FUNZ                        2
+     D  P_NMES                        7    Dim(10)
+     D  P_NFLD                       10    Dim(10)
+     D  P_CFLD                      256    Dim(10)
+     D  P_PGNA                       10
+     D  P_YFILED                           LikeRec(YFILE:*KEY)
+     D  P_YFILEA                           LikeRec(YFILE:*KEY)
+      **************************************************************************
+      * MAIN
+      **************************************************************************
+      /FREE
+
+       // Operazioni iniziali
+          EXSR INIZIO;
+
+       // Verifico l'elaborazione da eseguire
+          SELECT;
+          // Cancellazione record
+             WHEN W_RTCD = '  ';
+                EXSR DLTREC;
+          // Cancellazione Range di Record
+             WHEN W_RTCD = '1 ';
+                EXSR DLTRANGE;
+          // Chiusura programma
+             WHEN W_RTCD = 'LR';
+                *INLR = *On;
+                RETURN;
+          ENDSL;
+
+       RETURN;
+       // **********************************************************************
+       // Cancellazione Record
+       // **********************************************************************
+          BEGSR DLTREC;
+
+          // Cancellazione YFILE00F
+             CHAIN %KDS(P_YFILED) YFILE00F;
+             IF %Found;
+                MONITOR;
+                   DELETE YFILE00F;
+                ON-ERROR;
+                   P_RTCD = '1 ';
+                   P_NMES(%Lookup(' ':P_NMES)) = 'MSG3118';
+                ENDMON;
+             ENDIF;
+
+          ENDSR;
+       // **********************************************************************
+       // Cancellazione range di record
+       // **********************************************************************
+          BEGSR DLTRANGE;
+
+          // Cancellazione range
+             I_Eof = *Off;
+             SETLL %KDS(P_YFILED) YFILE00F;
+             DOW Not I_EOF;
+                READ YFILE00F;
+                I_EOF = %Eof
+                        Or CDDTYY > P_YFILEA.CDDTYY
+                        Or CDARYY > P_YFILEA.CDARYY;
+                   IF I_EOF;
+                      UNLOCK YFILE00F;
+                      ITER;
+                   ENDIF;
+                MONITOR;
+                   DELETE YFILE00F;
+                ON-ERROR;
+                   P_RTCD = '1 ';
+                   P_NMES(%Lookup(' ':P_NMES)) = 'MSG3118';
+                   I_EOF = *On;
+                ENDMON;
+             ENDDO;
+
+          ENDSR;
+       // **********************************************************************
+       // Operazioni iniziali
+       // **********************************************************************
+          BEGSR INIZIO;
+
+          // Inizializzazione variabili
+             W_RTCD = P_RTCD;
+
+             W_IDXERR = %Lookup(' ':P_NMES) - 1;
+             IF W_IDXERR < 0;
+                W_IDXERR = 0;
+             ENDIF;
+
+             CLEAR P_RTCD;
+             CLEAR P_TPEL;
+
+          ENDSR;
+       // **********************************************************************
+       // Routine iniziale
+       // **********************************************************************
+          BEGSR *INZSR;
+
+          ENDSR;
+       // **********************************************************************
+
+      /END-FREE

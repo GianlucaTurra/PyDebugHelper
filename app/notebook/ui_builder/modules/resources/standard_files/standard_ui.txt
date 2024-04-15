@@ -1,0 +1,673 @@
+     H DATEDIT(*YMD)
+      **********************************************************************
+      * PROGRAMMA DI GESTIONE xxxx.xxxxxxxxx
+      **********************************************************************
+9000  * SERMIE 20140920 WORKITEM 1
+      * Programma nuovo - versione 9
+      **********************************************************************
+      * PARAMETRI:
+      * - INPUT
+      *       PB_PGMG  = Nome programma/parte
+      *       PB_TPEL  = Flag Immissione/Modifica/Visualizzazione
+      *                   '1' = Immissione
+      *                   '0' = Modifica
+      *       PB_RRN   = Numero Relativo di Record
+      *       PB_FORCE = Flag Forzatura
+      *                   'YES' = Forzatura messaggi forzabili
+      *       P_ELAB   = Tipo Elaborazione
+      *                   '1 ' = Controllo dati
+      *                   '2 ' = Reperimento dati
+      *                   '41' = Controllo dati per cancellazione
+      *                   '4 ' = Cancellazione
+      *                   '5 ' = Immissione/aggiornamento
+      *                   'LR' = Chiusura pgm con LR
+      *
+      * - OUTPUT
+      *       PB_RTCD  = Return Code
+      *                   '99'= Errore nell'elaborazione
+      *       PB_RRN   = Numero relativo di record (W_ELAB = '2')
+      *       PB_TPEL  = Flag Immissione/Modifica (per Reperimento dati)
+      *                   '1' = Immissione
+      *                   '0' = Modifica
+      *       PB_NMES  = Codici messaggi errore
+      *       PB_NFLD  = Campi che hanno generato errore
+      *       PB_CFLD  = Valori da concatenare al messaggio
+      *
+      **********************************************************************
+     FFILEF00F0KUF A E           K DISK    USROPN PREFIX(N_)
+     F                                     RENAME(FILEF00F0K:FILEFW)
+     F                                     EXTFILE('FILEF00F0K')
+      *-----------------------------------
+      * Definizione Prototipi
+      *-----------------------------------
+     D STDUI           PR
+     D  P_PARM                             LIKE(P_PARM)
+      *
+     D STDUI           PI
+     D  P_PARM                     5000
+
+     D FILEF0D         PR                  EXTPGM('FILEF0D')
+     D  P_RTCD                             LIKE(P_RTCD)
+     D  P_NMES                             LIKE(P_NMES) DIM(10)
+     D  P_CFLD                             LIKE(P_CFLD) DIM(10)
+     D  P_PGNA                             LIKE(P_PGNA)
+     D  P_FILEFD                           LIKEDS(P_FILEFD)
+     D  P_FILEFA                           LIKEDS(P_FILEFA)
+      *
+     D FILEF0C         PR                  EXTPGM('FILEF0C')
+     D  P_RTCD                             LIKE(P_RTCD)
+     D  P_TPEL                             LIKE(P_TPEL)
+     D  P_FUNZ                             LIKE(P_FUNZ)
+     D  P_NMES                             LIKE(P_NMES) DIM(10)
+     D  P_NFLD                             LIKE(P_NFLD) DIM(10)
+     D  P_CFLD                             LIKE(P_CFLD) DIM(10)
+     D  P_PGNA                             LIKE(P_PGNA)
+     D  N_FILEF                            LIKEDS(N_FILEF)
+      *
+     D FILEF0W         PR                  EXTPGM('FILEF0W')
+     D  P_RTCD                             LIKE(P_RTCD)
+     D  P_TPEL                             LIKE(P_TPEL)
+     D  P_NMES                             LIKE(P_NMES) DIM(10)
+     D  P_PGNA                             LIKE(P_PGNA)
+     D  N_FILEF                            LIKEDS(N_FILEF)
+     D  O_FILEF                            LIKEDS(O_FILEF)
+      *
+     D ABMSB           PR                  EXTPGM('ABMSB')
+     D  W_PGMG                             LIKE(W_PGMG)
+     D  P_RTCD_B                           LIKE(P_RTCD_B)
+     D  P_NMES                             LIKE(P_NMES) DIM(10)
+     D  P_NFLD                             LIKE(P_NFLD) DIM(10)
+     D  P_CFLD                             LIKE(P_CFLD) DIM(10)
+     D  P_FBLO                             LIKE(P_FBLO) DIM(10)
+     D  P_ABMSGDS                          LIKEDS(P_ABMSGDS)
+      *-----------------------------------
+      * Definizione Parametri
+      *-----------------------------------
+      * Parametri ABMSB
+     D P_RTCD_B        S              2    INZ
+     D P_ABMSGDS     E DS                  EXTNAME(ABMSVEDS) INZ
+      * Parametri FILE00C/FILE00W/FILE00D
+     D P_RTCD          S              2    INZ
+     D P_TPEL          S              1    INZ
+     D P_FUNZ          S              2    INZ
+     D P_NMES          S              7    DIM(10) INZ
+     D P_NFLD          S             10    DIM(10) INZ
+     D P_CFLD          S            256    DIM(10) INZ
+     D P_PGNA          S             10    INZ
+      *-----------------------------------
+      * Definizione campi chiave
+      *-----------------------------------
+     D K_CMP1          S                   LIKE(N_CMP1FF)
+     D K_CMP2          S                   LIKE(N_CMP2FF)
+     D K_CMP3          S                   LIKE(N_CMP3FF)
+     D K_FILEFW        DS                  LIKEREC(FILEFW:*KEY)
+      *-----------------------------------
+      * Definizione variabili di lavoro
+      *-----------------------------------
+     D W_PGMG_C        S             30
+     D W_PGMG          S             10
+     D W_RTCD          S              2
+     D W_ELAB          S              2
+     D W_TPEL          S              1
+     D W_FUNZ          S              2
+     D W_CDDT          S              2
+     D W_FORCE         S              3
+     D W_VALO          S           5000    INZ
+     D W_PARA          S           5000    INZ
+     D W_K             S              3  0 INZ
+     D W_X             S              3  0 INZ
+     D W_NMES_PT       S               *   INZ(%ADDR(A_NMES))
+     D W_NMES          S             70    BASED(W_NMES_PT)
+     D W_NFLD_PT       S               *   INZ(%ADDR(A_NFLD))
+     D W_NFLD          S            100    BASED(W_NFLD_PT)
+     D W_CFLD_PT       S               *   INZ(%ADDR(A_CFLD))
+     D W_CFLD          S           2560    BASED(W_CFLD_PT)
+     D W_RRN           S                   LIKE(N_FILERELKEY) INZ
+     D W_POSIZ         S              2  0 INZ
+      *
+     D W_CMP134        S             13  4 INZ
+      *
+     D I_ALT           S               N   INZ
+     D I_FOR           S               N   INZ
+     D I_NEW_FILEFW    S               N   INZ
+      *-----------------------------------
+      * Definizione Schiere
+      *-----------------------------------
+     D A_NMES          S              7    DIM(10)
+     D A_NFLD          S             10    DIM(10)
+     D A_CFLD          S            256    DIM(10)
+     D P_FBLO          S              1    DIM(10) INZ
+      *-----------------------------------
+      * Definizione DS Esterne
+      *-----------------------------------
+     D N_FILEF       E DS                  ExtName(FILEF00F) PREFIX(N_) INZ
+     D O_FILEF       E DS                  ExtName(FILEF00F) PREFIX(O_) INZ
+     D SHSDSDS       ESDS                  QUALIFIED
+      *
+     D P_FILEFD        DS                  QUALIFIED
+      * (chiave DA)
+      *
+     D P_FILEFA        DS                  QUALIFIED
+      * (chiave A)
+      *-----------------------------------
+      * Definizione Procedure
+      *-----------------------------------
+      /COPY *LIBL/QSBRLESRC,ABWORDSP
+      /COPY *LIBL/QSBRLESRC,ABWORDCP
+      /COPY *LIBL/QSBRLESRC,ABWORDP
+      /COPY *LIBL/QSBRLESRC,ABWORDTP
+      *********************************************************************
+      *       M A I N
+      *********************************************************************
+      /FREE
+
+       // Se richiamato senza parametri chiudo il programma
+       IF SHSDSDS.SDSPAR = 0;
+         EXSR FINE;
+         RETURN;
+       ENDIF;
+
+       // Operazioni iniziali
+       EXSR INIZIO;
+
+       // Elaborazione
+       SELECT;
+
+         // ...Chiusura con LR
+         WHEN W_ELAB = 'LR';
+           EXSR FINE;
+           RETURN;
+
+         // ...Reperimento dati
+         WHEN W_ELAB = '2' ;
+           EXSR ELAB_PGM_R;
+
+         // ...Controllo dati
+         WHEN W_ELAB = '1 ' ;
+           EXSR ELAB_PGM_C;
+
+         // ...Controllo dati per Cancellazione
+         WHEN W_ELAB = '41' ;
+           EXSR ELAB_PGM_CD;
+
+         // ...Cancellazione dati
+         WHEN W_ELAB = '4 ';
+           EXSR ELAB_PGM_D;
+
+         // ...Immissione/Aggiornamento dati
+         WHEN W_ELAB = '5 ';
+           EXSR ELAB_PGM_W;
+
+       ENDSL;
+
+       EXSR OUT_PARA;
+
+       RETURN;
+       //*********************************************************************
+       // ELAB_PGM_R: Reperimento dati
+       //*********************************************************************
+       BEGSR ELAB_PGM_R;
+
+         CLEAR N_FILEF;
+         I_NEW_FILEFW = *ON;
+
+         // Valorizzo la chiave
+         N_CMP1FF = K_CMP1;
+         N_CMP2FF = K_CMP2;
+
+         // Reperimento dati da database
+         P_RTCD = '2 ';
+         P_TPEL = W_TPEL;
+         P_FUNZ = W_FUNZ;
+         P_PGNA = W_PGMG;
+         CLEAR P_NMES;
+         CLEAR P_NFLD;
+         CLEAR P_CFLD;
+
+         CALLP FILE00C(P_RTCD:P_TPEL:P_FUNZ:P_NMES:P_NFLD:P_CFLD:P_PGNA:
+                       N_FILEF);
+
+         // Controllo presenza di messaggi bloccanti
+         EXSR RTVMSGB;
+         IF I_ALT;
+           W_RTCD = '99';
+         ENDIF;
+
+         // Restituisco messaggi
+         A_NMES = P_NMES;
+         A_NFLD = P_NFLD;
+         A_CFLD = P_CFLD;
+
+         // Restituisco tipo Immissione/aggiornamento
+         W_TPEL = P_TPEL;
+
+         // Scrittura file di comunicazione - immagine Vecchia
+         K_FILEFW.N_RECTYPEKEY = 'O';
+         EXSR WRT_FILEW;
+
+         // Scrittura file di comunicazione - immagine Nuova
+         K_FILEFW.N_RECTYPEKEY = 'N';
+         EXSR WRT_FILEW;
+
+       ENDSR;
+       //*********************************************************************
+       // ELAB_PGM_C: Controllo dati
+       //*********************************************************************
+       BEGSR ELAB_PGM_C;
+
+         // Lettura dati dai file di comunicazione - immagine Nuova
+         K_FILEFW.N_RECTYPEKEY = 'N';
+         I_NEW_FILEFW = *OFF;
+         CLEAR N_FILEF;
+         CHAIN %KDS(K_FILEFW) FILEF00F0K;
+         IF NOT %FOUND(FILEF00F0K);
+           // Errore e uscita
+           W_POSIZ = %LOOKUP(*BLANK:A_NMES);
+           IF W_POSIZ <> *ZERO;
+             A_NMES(W_POSIZ) = 'MSGB351';
+           ENDIF;
+           W_RTCD = '99';
+           LEAVESR;
+         ENDIF;
+
+         // Controllo record
+         P_RTCD = '1 ';
+         P_TPEL = W_TPEL;
+         P_FUNZ = W_FUNZ;
+         P_PGNA = W_PGMG;
+         CLEAR P_NMES;
+         CLEAR P_NFLD;
+         CLEAR P_CFLD;
+
+         CALLP FILE00C(P_RTCD:P_TPEL:P_FUNZ:P_NMES:P_NFLD:P_CFLD:P_PGNA:
+                       N_FILEF);
+
+         // Controllo presenza di messaggi bloccanti
+         EXSR RTVMSGB;
+         IF I_ALT;
+           W_RTCD = '99';
+         ENDIF;
+
+         // Restituisco messaggi
+         A_NMES = P_NMES;
+         A_NFLD = P_NFLD;
+         A_CFLD = P_CFLD;
+
+         // Se ci sono errori bloccanti...non aggiorno i file di comunicazione
+         IF I_ALT;
+           UNLOCK FILEF00F0K;
+         ENDIF;
+
+         // Se non ci sono errori bloccanti
+         // ...Aggiorno file di comunicazione - immagine Nuova
+         IF NOT I_ALT;
+           K_FILEFW.N_RECTYPEKEY = 'N';
+           EXSR WRT_FILEW;
+         ENDIF;
+
+       ENDSR;
+       //*********************************************************************
+       // ELAB_PGM_W: Immissione/Aggiornamento dati
+       //*********************************************************************
+       BEGSR ELAB_PGM_W;
+
+         // Lettura dati dai file di comunicazione - immagine Vecchia
+         CLEAR O_FILEF;
+         IF W_TPEL = '0';
+           K_FILEFW.N_RECTYPEKEY = 'O';
+           CHAIN %KDS(K_FILEFW) FILEF00F0K;
+           IF %FOUND;
+             O_FILEF = N_FILEF;
+           ENDIF;
+         ENDIF;
+
+         // Lettura dati dai file di comunicazione - immagine Nuova
+         CLEAR N_FILEF;
+         K_FILEFW.N_RECTYPEKEY = 'N';
+         I_NEW_FILEFW = *OFF;
+         CHAIN %KDS(K_FILEFW) FILEF00F0K;
+         IF NOT %FOUND;
+           // Errore e uscita
+           W_POSIZ = %LOOKUP(*BLANK:A_NMES);
+           IF W_POSIZ <> *ZERO;
+             A_NMES(W_POSIZ) = 'MSGB351';
+           ENDIF;
+           W_RTCD = '99';
+           LEAVESR;
+         ENDIF;
+
+         // Scrittura dati nel database
+         CLEAR P_RTCD;
+         CLEAR P_NMES;
+         CLEAR P_TPEL;
+         SELECT;
+         WHEN W_TPEL = '1';
+           P_RTCD = '2 ';
+           P_TPEL = '1';
+         WHEN W_TPEL = '0';
+           P_RTCD = '1 ';
+           P_TPEL = '0';
+         ENDSL;
+
+         CALLP FILE00W(P_RTCD:P_TPEL:P_NMES:P_PGNA:N_FILEF:O_FILEF);
+
+         // Controllo presenza di messaggi bloccanti
+         EXSR RTVMSGB;
+         IF I_ALT;
+           W_RTCD = '99';
+         ENDIF;
+
+         // Restituisco messaggi
+         A_NMES = P_NMES;
+         A_NFLD = P_NFLD;
+         A_CFLD = P_CFLD;
+
+         // Se ci sono errori bloccanti...non aggiorno i file di comunicazione
+         IF I_ALT;
+           UNLOCK FILEF00F0K;
+         ENDIF;
+
+         // Aggiorno file di comunicazione - immagine Nuova
+         // ...Aggiorno file di comunicazione - immagine Nuova
+         IF NOT I_ALT;
+            K_FILEFW.N_RECTYPEKEY = 'N';
+            EXSR WRT_FILEW;
+         ENDIF;
+
+       ENDSR;
+       //*********************************************************************
+       // ELAB_PGM_CD: Controlli per cancellazione dati
+       //*********************************************************************
+       BEGSR ELAB_PGM_CD;
+
+          //Se presenti controlli per cancellazione richiamare lo spaccato
+          // di controllo analogamente a quanto fatto nella routine
+          // ELAB_PGM_C
+
+       ENDSR;
+       //*********************************************************************
+       // ELAB_PGM_D: Cancellazione dati
+       //*********************************************************************
+       BEGSR ELAB_PGM_D;
+
+         // Cancello dati dai file effettivi
+         CLEAR P_NMES;
+         CLEAR P_NFLD;
+         CLEAR P_CFLD;
+         CLEAR P_FILEFD;
+         CLEAR P_FILEFA;
+         CLEAR P_RTCD;
+         P_FILEFD.CMP1FF = K_CMP1;
+         P_FILEFD.CMP2FF = K_CMP2;
+
+         CALLP FILE00D(P_RTCD:P_NMES:P_CFLD:P_PGNA:P_FILEFD:P_FILEFA);
+
+         // Controllo presenza di messaggi bloccanti
+         EXSR RTVMSGB;
+         IF I_ALT;
+           W_RTCD = '99';
+         ENDIF;
+
+         // Restituisco messaggi
+         A_NMES = P_NMES;
+         A_NFLD = P_NFLD;
+         A_CFLD = P_CFLD;
+
+       ENDSR;
+       //*********************************************************************
+       // WRT_FILEW: Scrittura file di comunicazione
+       //*********************************************************************
+       BEGSR WRT_FILEW;
+
+         IF I_NEW_FILEFW;
+           N_FILEJOBKEY = K_FILEFW.N_FILEJOBKEY;
+           N_FILERELKEY = K_FILEFW.N_FILERELKEY;
+           N_RECTYPEKEY = K_FILEFW.N_RECTYPEKEY;
+           WRITE FILEFW;
+         ELSE;
+           UPDATE FILEFW;
+         ENDIF;
+
+       ENDSR;
+       //*********************************************************************
+       //  RTVMSGB: STABILISCE SE PRESENTI MESSAGGI BLOCCANTI
+       //*********************************************************************
+       BEGSR RTVMSGB;
+
+         I_ALT  = *OFF;
+         I_FOR  = *OFF;
+
+         // Se schiera messaggi è vuota...esco dalla routine
+         IF P_NMES(1) = *BLANK AND P_CFLD(1) = *BLANK;
+           LEAVESR;
+         ENDIF;
+         // Reperisce messaggio con gravità più alta
+         CLEAR P_ABMSGDS;
+         P_RTCD_B = *BLANK;
+         CALLP ABMSB(W_PGMG:P_RTCD_B:P_NMES:P_NFLD:P_CFLD:P_FBLO:
+                     P_ABMSGDS);
+         // Imposto flag che indica che il messaggio di gravità + alta è un Bloccate
+         IF FBLOAG = 'A' OR FBLOAG = 'C';
+           I_ALT = *ON;
+         ENDIF;
+         // Imposto flag che indica che il messaggio di gravità + alta è un Forzabile
+         IF FBLOAG = 'Z' AND W_FUNZ <> 'KF';
+           I_FOR = *ON;
+         ENDIF;
+
+       ENDSR;
+       //*********************************************************************
+       // SUBROUTINE DI INIZIO
+       //*********************************************************************
+       BEGSR INIZIO;
+
+         CLEAR A_NMES;
+         CLEAR A_NFLD;
+         CLEAR A_CFLD;
+         I_ALT = *OFF;
+
+         // Inizializzo il Return code
+         W_RTCD = '00';
+
+         // Estrazione parametri
+         EXSR INP_PARA;
+
+         // Assegnazione chiave file di comunicazione
+         K_FILEFW.N_FILEJOBKEY = %EDITC(SHSDSDS.SDSJNU:'X');
+         K_FILEFW.N_FILERELKEY = W_RRN;
+
+       ENDSR;
+       //*********************************************************************
+       // IMPOSTA I PARAMETRI IN ENTRY NELLE VARIABILI
+       //*********************************************************************
+       BEGSR INP_PARA;
+
+         // Parametri Base Palmax ----------------------------------
+
+         // ...Nome configurazione
+         W_PARA = 'PB_PGMG';
+         W_PGMG_C = WORDS(P_PARM:W_PARA);
+         W_PGMG = %SUBST(W_PGMG_C:1:%SCAN('.':W_PGMG_C:1)-1);
+
+         // ...Ditta
+         W_PARA = 'PB_CDDT';
+         W_CDDT = WORDS(P_PARM:W_PARA);
+
+         // ...Flag Immissione/Modifica
+         W_PARA = 'PB_TPEL';
+         W_TPEL = WORDS(P_PARM:W_PARA);
+
+         // ...Chiave record file di comunicazione (FILERELKEY)
+         CLEAR W_RRN;
+         IF WORDT(P_PARM:'PB_RRN')=1;
+           W_PARA = 'PB_RRN';
+           W_RRN = WORDS(P_PARM:W_PARA);
+           // Se parametro passato in bianco...assegna il nuovo RRN
+           IF W_RRN = *BLANK;
+             W_RRN = %CHAR(%TIMESTAMP());
+           ENDIF;
+         ENDIF;
+
+         // Forzatura messaggi
+         CLEAR W_FUNZ;
+         W_PARA = 'PB_FORCE';
+         W_FORCE = WORDS(P_PARM:W_PARA);
+         IF W_FORCE = 'YES';
+           W_FUNZ = 'KF';
+         ENDIF;
+
+
+         // Parametri specifici per tipo operazione ----------------
+
+         // ...Tipo Elaborazione
+         W_PARA = 'P_ELAB';
+         W_ELAB = WORDS(P_PARM:W_PARA);
+
+         SELECT;
+
+            // Parametri Controllo dati
+            WHEN W_ELAB = '1';
+
+            // Parametri Reperimento dati
+            WHEN W_ELAB = '2';
+
+              // Chiavi file database
+              K_CMP1 = WORDS(P_PARM:'FILEF00F<.>CAMPO1');
+              K_CMP2 = WORDS(P_PARM:'FILEF00F<.>CAMPO2');
+
+              // ...esempio di estrazione di un parametro numerico Intero
+              CLEAR K_CMP3;
+              W_PARA='FILEF00F<.>CAMPO3';
+              IF WORDS(P_PARM:W_PARA) <> *BLANK;
+                 K_CMP3 = %INT(WORDS(P_PARM:W_PARA));
+              ENDIF;
+
+              // ...esempio di estrazione di un parametro numerico 13 con 4 decimali
+              CLEAR W_CMP134;
+              W_PARA='FILEF00F<.>QUANT';
+              IF WORDS(P_PARM:W_PARA) <> *BLANK;
+                W_CMP134 = %DEC(WORDS(P_PARM:W_PARA):13:4);
+              ENDIF;
+
+            // Parametri Controllo per cancellazione
+            WHEN W_ELAB = '41';
+
+            // Parametri Cancellazione
+            WHEN W_ELAB = '4';
+
+            // Parametri Immissione/Aggiornamento
+            WHEN W_ELAB = '5';
+
+         ENDSL;
+
+       ENDSR;
+       //*********************************************************************
+       // OUT_PARA: Restituzione stringa Parametri
+       //*********************************************************************
+       BEGSR OUT_PARA;
+
+         // Parametri Base Palmax ----------------------------------
+
+         // ...Return code
+         CLEAR W_VALO;
+         W_PARA = 'PB_RTCD';
+         W_VALO = W_RTCD;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+
+         // ...Numero relativo di record
+         CLEAR W_VALO;
+         W_PARA = 'PB_RRN';
+         W_VALO = W_RRN;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+
+         // ...Flag Immissione/Modifica
+         CLEAR W_VALO;
+         W_PARA = 'PB_TPEL';
+         W_VALO = W_TPEL;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+
+         // ...Schiere Messaggi
+         CLEAR W_VALO;
+         W_PARA = 'PB_NMES';
+         W_VALO = W_NMES;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+         CLEAR W_VALO;
+         W_PARA = 'PB_NFLD';
+         W_VALO = W_NFLD;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+         CLEAR W_VALO;
+         W_PARA = 'PB_CFLD';
+         W_VALO = W_CFLD;
+         P_PARM = WORDC(P_PARM:W_PARA:W_VALO:' ');
+
+         // Parametri specifici per tipo operazione ----------------
+         SELECT;
+
+            // Parametri Controllo dati
+            WHEN W_ELAB = '1';
+
+            // Parametri Reperimento dati
+            WHEN W_ELAB = '2';
+
+              // ...esempio di restituzione parametro Alfanumerico
+              P_PARM = WORDC(P_PARM:'P_CAMPOA':W_CAMPOA:' ');
+
+              // ...esempio di restituzione di un parametro numerico Intero
+              W_VALO = %EDITC(K_CMP3:'X');
+              P_PARM = WORDC(P_PARM:'FILEF00F<.>CAMPO3':W_VALO:' ');
+
+              // ...esempio di estrazione di un parametro numerico 13 con 4 decimali
+              W_VALO = %EDITC(W_CMP134:'J');
+              P_PARM = WORDC(P_PARM:'FILEF00F<.>QUANT':W_VALO:'A');
+
+
+            // Parametri Controllo per cancellazione
+            WHEN W_ELAB = '41';
+
+            // Parametri Cancellazione
+            WHEN W_ELAB = '4';
+
+            // Parametri Immissione/Aggiornamento
+            WHEN W_ELAB = '5';
+
+         ENDSL;
+
+       ENDSR;
+       //*********************************************************************
+       // SUBROUTINE DI FINE
+       //*********************************************************************
+       BEGSR FINE;
+
+         P_RTCD = 'LR';
+         CALLP FILE00C(P_RTCD:P_TPEL:P_FUNZ:P_NMES:P_NFLD:P_CFLD:P_PGNA:
+                       N_FILEF);
+
+         P_RTCD = 'LR';
+         CALLP FILE00D(P_RTCD:P_NMES:P_CFLD:P_PGNA:P_FILEFD:P_FILEFA);
+
+         P_RTCD = 'LR';
+         CALLP FILE00W(P_RTCD:P_TPEL:P_NMES:P_PGNA:N_FILEF:O_FILEF);
+
+         // Chiude file
+         CLOSE(E) FILEF00F0K;
+
+         *INLR = *ON;
+
+       ENDSR;
+       //*********************************************************************
+       // OPERAZIONI INIZIALI
+       //*********************************************************************
+       BEGSR *INZSR;
+
+         // Se richiamato senza parametri chiudo il pgm
+         IF SHSDSDS.SDSPAR = 0;
+           *INLR = *ON;
+           RETURN;
+         ENDIF;
+
+         // Apertura archivi
+         OPEN FILEF00F0K;
+
+       ENDSR;
+       //********************************************************************
+      /END-FREE

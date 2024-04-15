@@ -1,0 +1,226 @@
+      **************************************************************************
+      * PROGRAMMA DI CONTROLLO
+      **************************************************************************
+9000  * xxxyyy 20220418 WORKITEM
+      * Programma nuovo - versione 9
+      **************************************************************************
+      *  PARAMETRI INPUT:
+      *    P_RTCD    = Tipo elaborazione
+      *                 '1 ' = Controllo campi record
+      *                 '2  '= Reperimento record
+      *                 '3 ' = Reperimento + controllo campi record
+      *                 'LR' = Chiusura programmi
+      *    P_TPEL    = Inserimento / modifica
+      *                 '0 ' = Modifica
+      *                 '1 ' = Inserimento
+      *    P_FUNZ    = Simulazione tasti funzione
+      *    P_NMES    = Schiera messaggi di errore
+      *    P_NFLD    = Schiera campo che ha generato l'errore
+      *    P_CFLD    = Schiera costanti da concatenare all'errore
+      *    P_PGNA    = Nome programma chiamante
+      *    N_YFILE  = DS contentente campi YFILE00F
+      *
+      *  PARAMETRI OUTPUT:
+      *    P_RTCD    = Elaborazione terminata correttamente/con errori
+      *                 '1 ' Aggiornamento/Inserimento terminato in modo anomalo
+      *                 '0 ' Aggiornamento/Inserimento terminato correttamente
+      *    P_NMES    = Schiera Messaggi di Errore
+      *    N_YFILE  = DS contentente campi YFILE00F
+      *
+      **************************************************************************
+     FYFILE00F  IF   E           K Disk
+      *-------------------------------------------------------------------------
+      * Definizione variabili di lavoro
+      *-------------------------------------------------------------------------
+     D W_IDXERR        S              4  0
+     D W_COSTAN        S             40
+     D W_CAMPO         S             10
+     D W_MESSAG        S              7
+     D W_RTCD          S              2
+      *-------------------------------------------------------------------------
+      * Definizione variabili logiche
+      *-------------------------------------------------------------------------
+     D I_DECO          S               N   Inz(*Off)                            Decodifica
+     D I_FORZ          S               N   Inz(*Off)                            Forzatura
+     D I_NEWR          S               N   Inz(*Off)                            Nuovo record
+     D I_ERRB          S               N   Inz(*Off)                            Errore bloccante
+      *-------------------------------------------------------------------------
+      * Definizione parametri
+      *-------------------------------------------------------------------------
+      * Parametri per ABMSD
+     D P_RTCD_MS       S              2
+     D P_ABMSVEDS    E DS                  ExtName(ABMSVEDS)
+     D                                     Qualified
+     D                                     Inz
+      *-------------------------------------------------------------------------
+      * Definizione chiavi
+      *-------------------------------------------------------------------------
+     D KYFILE0         DS                  LikeRec(YFILE:*Key)
+      *-------------------------------------------------------------------------
+      * Definizione aree dati
+      *-------------------------------------------------------------------------
+      *-------------------------------------------------------------------------
+      * Definizione strutture dati
+      *-------------------------------------------------------------------------
+     D F0_YFILE      E DS                  ExtName(YFILE00F)
+     D                                     Inz
+      *-------------------------------------------------------------------------
+      * Dichiarazione procedure
+      *-------------------------------------------------------------------------
+      * Prototipo input
+     D YFILE00C        PR
+     D  P_RTCD                             Like(P_RTCD)
+     D  P_TPEL                             Like(P_TPEL)
+     D  P_FUNZ                             Like(P_FUNZ)
+     D  P_NMES                             Like(P_NMES) Dim(10)
+     D  P_NFLD                             Like(P_NFLD) Dim(10)
+     D  P_CFLD                             Like(P_CFLD) Dim(10)
+     D  P_PGNA                             Like(P_PGNA)
+     D  N_YFILE                            LikeRec(YFILE)
+      * Interfaccia input
+     D YFILE00C        PI
+     D  P_RTCD                        2
+     D  P_TPEL                        1
+     D  P_FUNZ                        2
+     D  P_NMES                        7    Dim(10)
+     D  P_NFLD                       10    Dim(10)
+     D  P_CFLD                      256    Dim(10)
+     D  P_PGNA                       10
+     D  N_YFILE                            LikeRec(YFILE)
+      * Prototipo per la chiamata ad ABMSD
+     D ABMSD           PR                  ExtPgm('ABMSD')
+     D  P_RTCD_MS                          Like(P_RTCD_MS)
+     D  P_ABMSVEDS                         LikeDS(P_ABMSVEDS)
+      *
+      /COPY *LIBL/QSBRLESRC,ABPRM2STRP
+      **************************************************************************
+      * MAIN
+      **************************************************************************
+      /FREE
+
+       // Operazioni iniziali
+       EXSR INIZIO;
+
+       // Verifica delle operazione da eseguire
+          SELECT;
+          // Controllo dati record
+             WHEN W_RTCD = '1 ';
+                EXSR CTRL_REC;
+          // Reperimento record
+             WHEN W_RTCD = '2 ';
+                EXSR RTV_REC;
+          // Reperimento + controllo dati
+             When W_RTCD = '3 ';
+                EXSR RTV_REC;
+                EXSR CTRL_REC;
+          // Chiusura programma
+             WHEN W_RTCD = 'LR';
+                EXSR FINE;
+                *INLR = *ON;
+                RETURN;
+          ENDSL;
+
+          RETURN;
+       // **********************************************************************
+       // Reperimento record
+       // **********************************************************************
+          BEGSR RTV_REC;
+
+             EVAL-CORR KYFILE0 = N_YFILE;
+             CHAIN %KDS(KYFILE0) YFILE00F;
+             IF Not %Found;
+                CLEAR N_YFILE;
+                EVAL-CORR N_YFILE = KYFILE0;
+             ELSE;
+                N_YFILE = F0_YFILE;
+             ENDIF;
+
+             P_TPEL = Not %Found;
+
+          ENDSR;
+       // ***********************************************************************
+       // Controllo record
+       // ***********************************************************************
+          BEGSR CTRL_REC;
+
+            //Esempio controllo (esistenza articolo)
+       //     CHAIN (K_CDDT:K_CDAR) MGART00F;
+       //     IF NOT %FOUND;
+       //       W_MESSAG = 'MSG0931';
+       //       W_CAMPO = 'CDARMA';
+       //       EXSR DECO_MSG;
+       //       IF I_ERRB;
+       //         LEAVESR;
+       //       ENDIF;
+       //     ENDIF;
+
+          ENDSR;
+       // **********************************************************************
+       // OPERAZIONI INIZIALI
+       // **********************************************************************
+          BEGSR INIZIO;
+
+             W_RTCD = P_RTCD;
+             W_IDXERR = %Lookup(' ':P_NMES) - 1;
+             IF W_IDXERR < *Zero;
+                W_IDXERR = *Zero;
+             ENDIF;
+
+             I_DECO = (P_FUNZ='KD');
+             I_FORZ = (P_FUNZ='KF');
+             I_NEWR = P_TPEL;
+
+             CLEAR P_RTCD;
+             CLEAR P_FUNZ;
+             CLEAR P_TPEL;
+             CLEAR W_MESSAG;
+             CLEAR W_CAMPO;
+             CLEAR W_COSTAN;
+
+          ENDSR;
+       // **********************************************************************
+       // OPERAZIONI CONCLUSIVE
+       // **********************************************************************
+          BEGSR FINE;
+
+          ENDSR;
+       // **********************************************************************
+       // DECODIFICA MESSAGGIO
+       // **********************************************************************
+          BEGSR DECO_MSG;
+
+             I_ERRB = *Off;
+             CLEAR P_RTCD_MS;
+             CLEAR P_ABMSVEDS;
+             P_ABMSVEDS.NMESAG = W_MESSAG;
+             P_ABMSVEDS.NPGMAG = P_PGNA;
+             CALLP ABMSD(P_RTCD_MS:P_ABMSVEDS);
+
+             I_ERRB = ((P_ABMSVEDS.FBLOAG = 'A'
+                          Or P_ABMSVEDS.FBLOAG = 'C')
+                          And Not I_DECO);
+
+             IF I_DECO
+                Or ((P_ABMSVEDS.FBLOAG = 'Z') And I_FORZ);
+                LEAVESR;
+             ENDIF;
+
+             W_IDXERR += 1;
+             P_NMES(W_IDXERR) = W_MESSAG;
+             P_NFLD(W_IDXERR) = W_CAMPO;
+             P_CFLD(W_IDXERR) = ABPRM2STR('1':W_COSTAN);
+             CLEAR W_MESSAG;
+             CLEAR W_CAMPO;
+             CLEAR W_COSTAN;
+
+          ENDSR;
+       // **********************************************************************
+       // ROUTINE INIZIALE
+       // **********************************************************************
+          BEGSR *INZSR;
+
+
+          ENDSR;
+       // **********************************************************************
+
+      /END-FREE

@@ -1,0 +1,228 @@
+      *******************************************************************
+      *    AGGIORNAMENTO FILE
+      *******************************************************************
+9000  * ELISEA 20220418 WORKITEM
+      * Programma nuovo - versione 9
+      *******************************************************************
+      *
+      *  RICEVE:
+      *    P_RTCD    = Tipo elaborazione
+      *                 '1 ' = Aggiornamento Record
+      *                 '2  '= Inserimento   Record
+      *                 '3 ' = Inserimento/Aggiornamento Record
+      *    P_TPEL    = Inserimento / Modifica
+      *                 '0 ' = Modifica
+      *                 '1 ' = Inserimento
+      *    P_NMES    = Schiera Messaggi di Errore
+      *    P_NFLD    = Schiera Campo che ha generato l'Errore
+      *    P_CFLD    = Schiera costanti da concatenare all'Errore
+      *    P_PGNA    = Nome programma chiamante
+      *    N0_YFILE  = Immagine nuova  YFILE00F
+      *    O0_YFILE  = Immagine vechia YFILE00F
+      *
+      *  RESTITUISCE:
+      *    P_RTCD    = Elaborazione terminata correttamente/con errori
+      *                 '1 ' Aggiornamento/Inserimento terminato in modo anomalo
+      *                 '0 ' Aggiornamento/Inserimento terminato correttamente
+      *    P_NMES    = Schiera Messaggi di Errore
+      *    N0_YFILE  = Immagine nuova  YFILE00F
+      *    O0_YFILE  = Immagine vechia YFILE00F
+      *******************************************************************
+     FYFILE00F  UF A E           K Disk
+      *-------------------------------------------------------------------------
+      * Dichiarazione Procedure
+      *-------------------------------------------------------------------------
+      * Prototipo ed interfaccia di Input
+     D YFILE00W        PR
+     D  P_RTCD                             LIKE(P_RTCD)
+     D  P_TPEL                             LIKE(P_TPEL)
+     D  P_FUNZ                             LIKE(P_FUNZ)
+     D  P_NMES                        7    DIM(10)
+     D  P_NFLD                       10    DIM(10)
+     D  P_CFLD                      256    DIM(10)
+     D  P_PGNA                             LIKE(P_PGNA)
+     D  N0_YFILE                           LIKEREC(YFILE)
+     D  O0_YFILE                           LIKEREC(YFILE)
+      *
+     D YFILE00W        PI
+     D  P_RTCD                        2
+     D  P_TPEL                        1
+     D  P_FUNZ                        2
+     D  P_NMES                        7    DIM(10)
+     D  P_NFLD                       10    DIM(10)
+     D  P_CFLD                      256    DIM(10)
+     D  P_PGNA                       10
+     D  N0_YFILE                           LIKEREC(YFILE)
+     D  O0_YFILE                           LIKEREC(YFILE)
+      *
+     D ABTIME          PR                  EXTPGM('ABTIME')
+     D  ABTIMEDS                           LIKEDS(ABTIMEDS)
+      *
+     D CSPRCL          PR                  EXTPGM('CSPRCL')
+     D  P_PROFILO                    10
+      *
+      * Procedure Interne
+     D/COPY *LIBL/QSBRLESRC,SOSAP
+     D/COPY *LIBL/QSBRLESRC,SOSNP
+      *
+      *-------------------------------------------------------------------------
+      * Dichiarazione Variabili
+      *-------------------------------------------------------------------------
+      * Parametri
+     D P_PROFILO       S             10
+      * Variabili di Lavoro
+     D W_IDXERR        S              4  0
+     D W_RTCD          S                   LIKE(P_RTCD)
+     D I_NUOVOREC      S               N   INZ(*OFF)
+      *-------------------------------------------------------------------------
+      * Dichiarazione Strutture Dati
+      *-------------------------------------------------------------------------
+      * DS per Campi Chiave
+     D KYFILE          DS                  LIKEREC(YFILE:*KEY)
+      * DS Esterne
+     D F0_YFILE      E DS                  EXTNAME(YFILE00F)           INZ
+     D ABTIMEDS      E DS                  QUALIFIED                   INZ
+
+      *********************************************************
+      *        M A I N
+      *********************************************************
+      /FREE
+
+       EXSR INIZIO;
+
+       // Verifico l'elaborazione da eseguire
+       SELECT;
+          // Aggiornamento  Record
+          WHEN W_RTCD='1 '
+             OR W_RTCD='3 ';
+             EXSR AGGIORNA_REC;
+          // Scrittura  Record
+          WHEN W_RTCD='2 ';
+             EXSR SCRIVE_REC;
+          // Chiusura programma
+          WHEN W_RTCD='LR';
+             *INLR=*ON;
+             RETURN;
+       ENDSL;
+
+       RETURN;
+
+       // ********************************************************
+       // * Routine d'inizio                                     *
+       // ********************************************************
+       BEGSR INIZIO;
+
+          W_RTCD=P_RTCD;
+          I_NUOVOREC=P_TPEL;
+
+          W_IDXERR=%LOOKUP(' ':P_NMES)-1;
+          IF W_IDXERR<0;
+             W_IDXERR=0;
+          ENDIF;
+
+          CLEAR P_RTCD;
+          CLEAR P_TPEL;
+       ENDSR;
+
+       // ********************************************************
+       // * Aggiorna_Rec: Aggiornamento Record                   *
+       // ********************************************************
+       BEGSR AGGIORNA_REC;
+
+          EVAL-CORR KYFILE=N0_YFILE;
+          CHAIN %KDS(KYFILE) YFILE00F;
+          IF NOT %FOUND;
+             IF W_RTCD = '1 ';
+                W_IDXERR += 1;
+                P_NMES(W_IDXERR)='MSG8144';
+                P_RTCD='1 ';
+                LEAVESR;
+             ELSE;
+                EXSR SCRIVE_REC;
+             ENDIF;
+          ELSE;
+             // Muove campi a File
+             EXSR MUOVE_FILE;
+             MONITOR;
+                UPDATE YFILE;
+             ON-ERROR;
+                W_IDXERR += 1;
+                P_NMES(W_IDXERR)='MSG8144';
+                P_RTCD='1 ';
+                LEAVESR;
+             ENDMON;
+          ENDIF;
+
+          P_RTCD='0 ';
+          P_TPEL=I_NUOVOREC;
+
+          N0_YFILE=F0_YFILE;
+
+       ENDSR;
+
+       // ********************************************************
+       // * Scrive_Rec: Scrittura record                         *
+       // ********************************************************
+       BEGSR SCRIVE_REC;
+
+          CLEAR O0_YFILE;
+
+          EVAL-CORR KYFILE=N0_YFILE;
+          I_NUOVOREC=*ON;
+          CLEAR F0_YFILE;
+          EXSR MUOVE_FILE;
+          MONITOR;
+             WRITE YFILE;
+          ON-ERROR;
+             W_IDXERR += 1;
+             P_NMES(W_IDXERR)='MSG3622';
+             P_RTCD='1 ';
+             LEAVESR;
+          ENDMON;
+
+          P_TPEL=I_NUOVOREC;
+
+          N0_YFILE=F0_YFILE;
+
+       ENDSR;
+
+       // ********************************************************
+       // * Muove_File: Muove dati su record YFILE00F            *
+       // ********************************************************
+       BEGSR MUOVE_FILE;
+
+          PROFYY = P_PROFILO;
+          IF I_NUOVOREC;
+             DT01YY = ABTIMEDS.DATA8;
+             CLEAR DTMNYY;
+          ELSE;
+             DTMNYY = ABTIMEDS.DATA8;
+          ENDIF;
+
+          // Campi Chiave
+          CDDTYY = KYFILE.CDDTYY;
+          CDARYY = KYFILE.CDARYY;
+
+          // Aggiornamento campi file
+            //alfanumerico
+          CDMGYY = SOSA(CDMGYY: O0_YFILE.CDMGYY: N0_YFILE.CDMGYY:' ');
+            //numerico
+          DTBOYY = SOSN(DTBOYY: O0_YFILE.DYBOYY: N0_YFILE.DTBOYY:' ');
+
+       ENDSR;
+       // ********************************************************
+       // * Routine Iniziale                                     *
+       // ********************************************************
+       BEGSR *INZSR;
+
+          // REPERISCE PROFILO UTENTE
+          CALLP CSPRCL(P_PROFILO);
+
+          // Reperimento data e ora di sistema
+          CALLP ABTIME(ABTIMEDS);
+
+       ENDSR;
+
+      /END-FREE
+      /COPY *LIBL/QSBRLESRC,SOSAQ
+      /COPY *LIBL/QSBRLESRC,SOSNQ

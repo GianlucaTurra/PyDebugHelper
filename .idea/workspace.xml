@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Fixed white buttons (nobody noticed)">
-      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/input_form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom_widgets/textinput/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom_widgets/textinput/text_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="64162a9d-892a-476e-9301-8325bc9e5674" name="Changes" comment="Started development for automatic RPG generation">
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/output_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/output_notebook.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/ui_generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/generate_ui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/input_validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/resources/standard_files/standard_control.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/resources/standard_files/standard_delete.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/resources/standard_files/standard_scrittura.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/resources/standard_files/standard_ui.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/spaccato_generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notebook/ui_builder/modules/substitute_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/field_matcher/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ui_builder/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/field_matcher/gui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/field_matcher/gui/field_match_frame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/field_matcher/gui/input_frame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/sql_parser/modules/sql_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notebook/ui_builder/gui/input_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notebook/ui_builder/gui/input_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_widgets/textinput/text_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_widgets/textinput/text_input.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,18 @@
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GianlucaTurra&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GianlucaTurra/PyDsMatcher.git&quot;,
+    &quot;accountId&quot;: &quot;a932a938-dbe5-46b9-9ee9-8a2867c45e78&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -63,11 +82,11 @@
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ui_builder\modules\resources\standard_files" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ui_builder\modules\resources" />
+      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ui_builder\modules" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\custom_widgets\inputbox" />
       <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\ds_matcher\gui\frame" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer\gui" />
-      <recent name="C:\Users\giatur\Desktop\Nuova cartella\Debug utilities suit\PyDsMatcher\app\notebook\para_analyzer\gui\para_parser" />
     </key>
   </component>
   <component name="RunManager">
@@ -102,7 +121,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -451,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711366294187</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Started development for automatic RPG generation">
+      <option name="closed" value="true" />
+      <created>1712664068147</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1712664068147</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +493,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring packages structure" />
     <MESSAGE value="CustomSearchbar introduced" />
     <MESSAGE value="Added img to searchbar" />
     <MESSAGE value="Refactoring classes structure to implement proper Dependecy injection." />
@@ -491,6 +517,7 @@
     <MESSAGE value="New theme, fixed para parsing bug" />
     <MESSAGE value="Returned to default theme, rebuilt exe file" />
     <MESSAGE value="Fixed white buttons (nobody noticed)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed white buttons (nobody noticed)" />
+    <MESSAGE value="Started development for automatic RPG generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started development for automatic RPG generation" />
   </component>
 </project>

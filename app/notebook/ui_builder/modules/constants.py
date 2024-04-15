@@ -1,0 +1,5 @@
+JG_PGM = 'xxxx.xxxxxxxxx'
+SIGLA = 'SERMIE'
+WORKITEM = 'WORKITEM 1'
+FILE = 'FILEF00F'
+TRACCIATO = 'FILEF'

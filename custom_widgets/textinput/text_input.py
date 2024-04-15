@@ -16,5 +16,8 @@ class TextInput(ttk.Frame):
         self.input = ttk.Entry(self, textvariable=self.input_text, font=('Elvetica', 12))
         self.input.grid(row=1, column=0, padx=10, pady=10)
 
-    def get_input(self):
+    def get_input(self) -> str:
         return self.input_text.get()
+
+    def set_input(self, text: str) -> None:
+        self.input_text.set(text)
